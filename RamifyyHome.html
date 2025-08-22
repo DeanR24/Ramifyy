@@ -1,0 +1,2826 @@
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Ramifyy</title><style>:root{--bg:#0b0f14;--panel:#10151c;--card:#131a22;--text:#eaf2ff;--muted:#a8b0bb;--brand:#7dd3fc;--brand-600:#38bdf8;--radius:14px;--shadow:0 8px 30px rgba(0,0,0,.35)}body,html{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}.menu{position:fixed;top:12px;left:12px;right:12px;display:flex;align-items:center;gap:10px;background:rgba(16,21,28,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:8px;box-shadow:var(--shadow);z-index:1000}.chip-btn,.icon-btn{display:inline-flex;align-items:center;justify-content:center;height:36px;min-width:36px;padding:0 10px;gap:8px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));color:var(--text);border-radius:10px;cursor:pointer;transition:transform .08s ease,border-color .2s ease,background .2s ease}.chip-btn:hover,.icon-btn:hover{border-color:rgba(255,255,255,.18)}.chip-btn:active,.icon-btn:active{transform:translateY(1px) scale(.98)}.spacer{flex:1}.dropdown small{color:#eaf1fb!important}.dropdown{position:absolute;top:56px;left:12px;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:12px;box-shadow:var(--shadow);padding:12px;width:min(420px,92vw);display:none;z-index:1001}.dropdown h3{margin:6px 0 10px;font-size:14px;color:var(--text)!important;font-weight:600}.row{display:flex;gap:8px}input[type=datetime-local],input[type=search],input[type=text],select{width:100%;background:#0f1318;color:var(--text);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;outline:0}.small-select{width:auto;min-width:140px;padding:4px 8px;font-size:12px}input[type=datetime-local]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.9}.content{width:min(1100px,94vw);margin:120px auto 60px}.heading-block{margin:18px 0 8px}.heading-bar{display:flex;align-items:center;gap:8px;justify-content:space-between;background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:10px 12px;border-radius:12px;position:relative}.heading-left{display:flex;align-items:center;gap:8px}.heading-toggle{background:0 0;border:none;color:var(--brand);font-size:18px;cursor:pointer;transition:transform .15s ease,color .2s ease}.heading-toggle:hover{color:var(--brand-600);transform:scale(1.12)}.heading-name{font-weight:800;letter-spacing:.3px}.heading-actions .mini-menu{position:absolute;right:12px;top:56px;width:260px}.cards{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:16px}.cards.open{display:grid}@media (min-width:1150px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:640px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:420px){.cards{grid-template-columns:1fr}}.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none;transition:transform .12s ease,box-shadow .2s ease,border-color .2s ease}.card:hover{transform:translateY(-2px);border-color:rgba(125,211,252,.35);box-shadow:0 8px 24px rgba(125,211,252,.16)}.card:active{transform:translateY(0) scale(.98)}.card.dragging{opacity:.6;transform:scale(1.03)}.card img{width:30px;height:30px;border-radius:6px}.card p{margin:0;font-weight:800;font-size:16px}.tasks{position:fixed;top:68px;right:-420px;width:min(420px,92vw);max-height:82vh;overflow:auto;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:var(--shadow);padding:12px;z-index:1002;transition:right .35s ease}.tasks.open{right:12px}.task-card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin:12px 0;color:var(--text)}.task-card.white{background:#fff!important;color:#0a0a0a!important}.task-title{font-weight:900;font-size:19px;margin:4px 0 10px;text-align:center}.task-title.done{text-decoration:line-through;opacity:.6}.task-actions{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}.task-actions input[type=checkbox]{transform:scale(1.9);width:22px;height:22px}.task-notes{width:100%;min-height:54px;resize:vertical;background:#0f1318;color:var(--text);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px}#timeDisplay{font-size:30px;font-weight:900;letter-spacing:1.25px}.cal-win{display:none;position:fixed;top:120px;left:120px;width:860px;height:620px;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;z-index:1001}.cal-header{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:var(--brand);color:#041116;font-weight:800;cursor:grab}.cal-body{width:100%;height:calc(100% - 38px)}.cal-resizer{position:absolute;z-index:1003}.cal-resizer.e{right:-6px;top:0;bottom:0;width:12px;cursor:ew-resize}.cal-resizer.w{left:-6px;top:0;bottom:0;width:12px;cursor:ew-resize}.cal-resizer.s{left:0;right:0;bottom:-6px;height:12px;cursor:ns-resize}.cal-resizer.n{left:0;right:0;top:-6px;height:12px;cursor:ns-resize}.cal-resizer.se{right:-8px;bottom:-8px;width:16px;height:16px;cursor:nwse-resize}.cal-resizer.sw{left:-8px;bottom:-8px;width:16px;height:16px;cursor:nesw-resize}.cal-resizer.ne{right:-8px;top:-8px;width:16px;height:16px;cursor:nwse-resize}.cal-resizer.nw{left:-8px;top:-8px;width:16px;height:16px;cursor:nwse-resize}.weather-chip{display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:0 10px;height:36px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));cursor:pointer}.weather-chip small{color:var(--muted);font-weight:600}.hidden{display:none!important}.iex{margin:12px 0 18px;border-radius:16px;border:1px solid rgba(255,255,255,.18);padding:12px;box-shadow:var(--shadow)}.iex .addrbar{display:flex;gap:8px;align-items:center;width:100%;background:#0f151c;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px}.iex .addrbar input{flex:1;border:none;outline:0;background:0 0;color:var(--text);font-size:16px}.iex--pinkblue{background:radial-gradient(1200px 200px at 30% -20%,rgba(255,102,196,.16),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:0 16px 60px rgba(255,102,196,.22)}.iex--teal{background:radial-gradient(1200px 200px at 30% -20%,rgba(34,247,195,.16),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:0 16px 60px rgba(34,247,195,.18)}.iex--amber{background:radial-gradient(1200px 200px at 30% -20%,rgba(245,158,11,.2),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:0 16px 60px rgba(245,158,11,.22)}.iex--slate{background:radial-gradient(1200px 200px at 30% -20%,rgba(96,165,250,.14),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:0 16px 60px rgba(96,165,250,.18)}.iex--neon{background:radial-gradient(1200px 200px at 30% -20%,rgba(34,197,94,.2),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:0 16px 60px rgba(34,197,94,.22)}.dock{position:fixed;top:60px;left:12px;width:min(460px,46vw);max-height:86vh;overflow:hidden;background:rgba(16,21,28,.45);backdrop-filter:blur(14px) saturate(130%);border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.5);z-index:1002;display:none}.dock::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:18px;background:linear-gradient(180deg,rgba(125,211,252,.25),rgba(255,255,255,0) 40%,rgba(125,211,252,.12) 100%);opacity:.75}.dock header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02))}.dock header strong{letter-spacing:.3px}.dock .body{width:100%;height:calc(86vh - 54px);overflow:auto}.dock .list{padding:10px 10px 14px;display:grid;gap:10px}.dock .item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 12px;transition:transform .12s ease,border-color .2s ease,background .2s ease}.dock .item:hover{transform:translateY(-1px) scale(1.01);border-color:rgba(125,211,252,.45);background:rgba(255,255,255,.07)}.dock .item a{color:var(--text);text-decoration:none;font-weight:800}.dock .favicon{flex:0 0 18px;width:18px;height:18px;border-radius:4px;opacity:.9;margin-top:2px}.dock .meta{color:var(--muted);font-size:12px;margin-top:4px}.dock .empty{color:var(--muted);padding:12px}.dock .widget{width:100%;height:100%}#navResults{display:grid;gap:8px}#navResults .result-item{padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);cursor:pointer}#navResults .result-item:hover{border-color:rgba(125,211,252,.35);background:rgba(255,255,255,.06)}.widget-card{display:flex;flex-direction:column;min-height:300px;max-height:clamp(360px,70vh,860px);overflow:hidden}.widget-card__body{flex:1 1 auto;overflow:auto;overscroll-behavior:contain}@media (min-width:1281px){body.dock-open .content{margin-left:clamp(480px,36vw,600px);transition:margin-left .25s ease}}@media (max-width:1280px){.dock{left:12px!important;right:12px!important;width:auto!important;max-width:980px}.dock .body{height:calc(78vh - 54px)!important}body.dock-open .content{margin-left:0!important}}.cards .card{background:#151b23}.iex{backdrop-filter:blur(18px) saturate(120%)}.iex .addrbar{backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 8px 26px rgba(0,0,0,.35)}.iex .addrbar:focus-within{box-shadow:inset 0 0 0 2px rgba(125,211,252,.55),0 8px 30px rgba(125,211,252,.2)}.iex--teal .addrbar{border-color:rgba(34,247,195,.35)}.iex--amber .addrbar{border-color:rgba(245,158,11,.35)}.iex--slate .addrbar{border-color:rgba(96,165,250,.35)}.iex--neon .addrbar{border-color:rgba(34,197,94,.35)}.iex--pinkblue .addrbar{border-color:rgba(255,102,196,.35)}#ramifySettingsBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:10000}#ramifySettingsModal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,92vw);background:var(--panel,#10151c);color:var(--text,#eaf2ff);border-radius:14px;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55);display:none;z-index:10001;padding:14px}#ramifySettingsModal header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}#ramifySettingsModal .tabrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}#ramifySettingsModal .section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px}#ramifySettingsModal .chip-btn,#ramifySettingsModal .icon-btn{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:0 0;color:var(--text,#eaf2ff);padding:6px 10px;border-radius:10px}#ramifySettingsModal .chip-btn:hover{border-color:rgba(255,255,255,.22)}#ramifySettingsFallback{position:fixed;top:12px;right:12px;z-index:10002;display:none}#chipDownload,#chipUpload,#configBtn,#downloadBtn,#uploadBtn{color:#f7fbff!important;text-shadow:0 0 10px rgba(255,255,255,.18);font-weight:800!important;letter-spacing:.2px}#settingsDrop{display:none!important}</style><style id=ramify-fixes-0818>#calendarDrop,#internetDrop,#navDrop,#shortcutsDrop,#themeDrop,#timeDrop,#weatherDrop{position:fixed!important;top:64px!important;max-height:calc(100vh - 88px);overflow:auto;z-index:1002}</style><script>!function(){function t(){var e=document.getElementById("settingsDrop");e&&e.remove()}t(),new MutationObserver(function(e){t()}).observe(document.documentElement,{childList:!0,subtree:!0})}()</script><div id=ramifySettingsBackdrop></div><div role=dialog id=ramifySettingsModal aria-labelledby=ramifySettingsTitle aria-modal=true><header><h3 id=ramifySettingsTitle>Settings</h3><button class=chip-btn id=ramifySettingsClose>✖</button></header><div class=tabrow><button class=chip-btn onclick=_ramifyShowAbout() id=ramifyTabAbout>ℹ️ About</button> <button class=chip-btn onclick=_ramifyShowContact() id=ramifyTabContact>✉️ Contact Owner</button> <button class=chip-btn onclick=_ramifyShowLegal() id=ramifyTabLegal>🛡️ Copyright / Legal</button></div><div class=section id=settingsPane><b>Choose a section above.</b></div></div><button class=chip-btn onclick=_ramifyOpenSettings() id=ramifySettingsFallback title="Settings (fallback)">⚙️ Settings</button><div class=menu id=topMenu><button class=icon-btn id=hamburger>☰</button> <button class=icon-btn id=openTasks>Tasks ✅</button> <button class=icon-btn id=quickNote>Notes📝</button> <button class=icon-btn id=openThemes>Backgrounds 🎨</button> <button class=chip-btn id=openCalendar>Calendar 📅</button> <button class=chip-btn id=toggleIEX>Internet 🌍</button> <button class=chip-btn id=toggleStocks>Stocks 📈</button> <button class=chip-btn id=toggleNews>News 📰</button><div class=spacer></div><div id=timeDisplay></div><div class=spacer></div><span id=weatherChip class=weather-chip>⛅ <span id=weatherNow>--°</span> <small id=weatherCity></small></span> <button class=icon-btn id=openTime>Clock ⏰</button> <button class=icon-btn id=openReminders>Reminders 🔔</button> <button class=chip-btn id=openNavigator>Shortcut Navigator🧭</button></div><div class=dropdown id=shortcutsDrop><h3>Shortcuts</h3><div class=row><input id=headingName placeholder="New heading…"> <button class=chip-btn onclick=App.addHeading()>Add</button></div><h3 style=margin-top:12px>Add Shortcut</h3><div class=row><select id=headingSelect></select></div><div class=row><input id=shortcutName placeholder=Name> <input id=shortcutURL placeholder="Your URL"></div><div class=row><button class=chip-btn onclick=App.addShortcut() style=width:100%>Add Shortcut</button></div><div style=margin-top:10px id=shortcutList></div></div><div class=dropdown id=themeDrop><h3>Theme</h3><select id=themeSelect onchange=App.changeTheme(this.value)><option value=""selected disabled hidden>Select Theme<option value=ocean>Ocean<option value=twilight>Twilight<option value=slate>Slate<option value=neon>Neon Pulse<option value=midnight>Midnight Aurora</select><h3 style=margin-top:12px>Wallpaper</h3><select id=wallpaperSelect onchange=App.changeWallpaper(this.value)><option value=none selected>No wallpaper<option value=beach>Beach<option value=nature>Nature<option value=filter>Fall</select> <small id=wpStatus style=color:var(--muted);display:block;margin-top:6px>Uses local files next to this HTML: <strong>Beach.jpg</strong>, <strong>Nature.jpg</strong>, <strong>Fall.jpg</strong>.</small></div><div class=dropdown id=timeDrop><h3>Clock</h3><div class=row style=flex-direction:column><button class=chip-btn onclick='App.setTimeFormat("12h")'>12-Hour</button> <button class=chip-btn onclick='App.setTimeFormat("24h")'>24-Hour</button> <button class=chip-btn onclick='App.setTimeFormat("date")'>Date</button> <button class=chip-btn onclick='App.setTimeFormat("day")'>Day</button> <button class=chip-btn onclick=App.toggleClock()>Clock On/Off</button></div></div><div class=dropdown id=calendarDrop><h3>Calendar</h3><div class=row style=margin-bottom:6px><select id=calProvider><option value=google selected>Google<option value=microsoft>Microsoft</select> <button class=chip-btn id=calHelpBtn title="How to embed">❓</button> <button class=chip-btn id=calOpenTab title="Open in new tab">↗</button></div><div class=row><input id=calendarURL placeholder="Paste embed URL"> <button class=chip-btn onclick=App.addCalendar()>Add</button></div><div class=hidden style=margin-top:8px;color:var(--muted);line-height:1.4 id=calHelp><strong>Google:</strong> Settings ▸ your calendar ▸ <em>Integrate calendar</em> ▸ copy the <em>Embed code</em> URL (starts with <code>https://calendar.google.com/calendar/embed?</code>).<br><strong>Microsoft:</strong> Outlook Calendar ▸ <em>Publish</em> / <em>Share</em> ▸ copy the <em>Embed</em> link.</div><div class=hidden style=margin-top:8px;color:#ffb4b4;font-weight:700 id=calWarn></div></div><div class=dropdown style=left:auto;right:12px id=weatherDrop><h3>Weather</h3><div class=row><input id=wxQuery placeholder="Search city (e.g., Marquette)"type=search> <button class=chip-btn onclick=App.searchWeather()>Search</button></div><div style=margin-top:8px id=wxResults></div><hr style=border-color:rgba(255,255,255,.1)><div id=wxCurrent></div></div><div class=dropdown style=left:220px id=navDrop><h3>Navigator</h3><div class=row><input id=navSearch placeholder="Find heading…"type=search></div><div style=margin-top:8px;max-height:45vh;overflow:auto id=navResults></div></div><div class=dropdown style=left:360px id=internetDrop><h3>Internet</h3><div class=row><select id=iexEngine><option value=brave selected>Brave<option value=google>Google<option value=bing>Edge/Bing</select> <select id=iexStyle><option value=pinkblue selected>Pink/Blue<option value=teal>Teal<option value=amber>Amber<option value=slate>Slate<option value=neon>Neon Green</select> <button class=chip-btn id=iexToggleBtn>Search On/Off</button></div><small style=color:var(--muted);display:block;margin-top:6px>Search opens in a new tab. No embedded results.</small></div><aside class=tasks id=tasksPanel><div style=display:flex;align-items:center;justify-content:space-between;margin-bottom:8px><h3 style=margin:0>Task List</h3><div><button class=chip-btn onclick=App.addTask()>➕ Add Task</button> <button class=chip-btn onclick=App.toggleTasks()>❌ Close</button></div></div><div id=tasksBody></div></aside><div class=cal-win id=calWin><div class=cal-header id=calDrag><span>Calendar</span><div><button class=chip-btn onclick=App.resizeCalendar(60)>➕</button> <button class=chip-btn onclick=App.resizeCalendar(-60)>➖</button> <button class=chip-btn onclick=App.closeCalendar()>❌</button></div></div><div class="cal-resizer n"></div><div class="cal-resizer s"></div><div class="cal-resizer e"></div><div class="cal-resizer w"></div><div class="cal-resizer ne"></div><div class="cal-resizer nw"></div><div class="cal-resizer se"></div><div class="cal-resizer sw"></div><iframe class=cal-body frameborder=0 id=calendarFrame loading=lazy referrerpolicy=no-referrer-when-downgrade scrolling=no></iframe></div><aside class=dock id=leftDock><header><div style=display:flex;gap:8px;align-items:center><strong id=dockTitle>Feed</strong> <select id=dockSource class=small-select></select></div><div><button class=chip-btn id=dockClose>❌</button></div></header><div class=body id=dockBody></div></aside><div class=hidden style=position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1003 id=remOverlay></div><div class=hidden style="position:fixed;z-index:1004;left:50%;top:50%;transform:translate(-50%,-50%);width:min(360px,92vw);background:var(--panel);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);border-radius:14px;padding:16px"id=remModal><h3 style="margin:0 0 10px">Set Reminder</h3><input id=remTitle placeholder=Title> <input id=remDT type=datetime-local style=margin-top:8px> <select id=remEmoji style=margin-top:8px><option value="">Emoji<option>🎯<option>🚀<option>📅<option>🔥<option>💡<option>✅<option>☕<option>🚶</select><div class=row style=margin-top:10px><button class=chip-btn onclick=App.saveReminder() style=flex:1>Save</button> <button class=chip-btn onclick=App.closeReminder() style=flex:1>Cancel</button></div><hr style=border-color:rgba(255,255,255,.1)><h4 style="margin:6px 0 6px;color:var(--muted)">Saved</h4><ul id=remList style=list-style:none;padding:0;margin:0;display:grid;gap:6px></ul><hr style=border-color:rgba(255,255,255,.1)><h4 style="margin:6px 0;color:var(--muted)">Daily Message</h4><div style=display:flex;flex-direction:column;gap:8px><label style=display:flex;align-items:center;gap:8px><input id=dailyMsgToggle type=checkbox> Enable Daily Message</label> <select id=dailyMsgType><option value=biblical>Biblical<option value=motivational>Motivational</select></div></div><div class=hidden style="position:fixed;z-index:1005;left:50%;top:50%;transform:translate(-50%,-50%) scale(.98);background:linear-gradient(135deg,rgba(125,211,252,.95),rgba(56,189,248,.95));color:#04121f;padding:20px 24px;border-radius:18px;font-weight:900;min-width:280px;text-align:center;box-shadow:0 16px 60px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;gap:10px;opacity:0;pointer-events:none"id=remToast><span id=remToastEmoji class=emoji>🔔</span><span id=remToastText></span><button class=chip-btn onclick=App.hideToast()>❌</button></div><div class=hidden style="position:fixed;z-index:1006;left:50%;top:50%;transform:translate(-50%,-50%) scale(.98);background:linear-gradient(135deg,rgba(167,139,250,.95),rgba(56,189,248,.95));color:#fff;padding:28px;border-radius:22px;font-weight:700;font-size:18px;min-width:300px;max-width:90vw;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:14px;opacity:0;pointer-events:none"id=dailyPopup><div id=dailyPopupText>Daily Message</div><button class=chip-btn onclick=App.hideDailyPopup()>❌ Close</button></div><main class=content><section class="hidden iex iex--pinkblue"id=iexPanel><div class=addrbar><span>🌍</span> <input id=iexInput placeholder="Search the web…"type=search autocomplete=off> <button class=chip-btn id=iexGo>Go</button></div></section><div id=headingsRoot></div></main><script>const Storage = { get(key, fallback){ try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : (fallback ?? null); }catch{ return fallback ?? null; } }, set(key,val){ localStorage.setItem(key, JSON.stringify(val)); }, del(key){ localStorage.removeItem(key); } };
+
+  const THEMES = { ocean:{ bg:'#07131a', text:'#e6f7ff', accent:'#7dd3fc', panel:'#0d1820', card:'#0f1c25' }, twilight:{ bg:'#0c0f17', text:'#eef2ff', accent:'#a78bfa', panel:'#121627', card:'#161b2e' }, slate:{ bg:'#0e1116', text:'#eaeef5', accent:'#60a5fa', panel:'#141922', card:'#18202b' }, neon:{ bg:'#060a0f', text:'#eafffd', accent:'#22f7c3', panel:'#0a0f16', card:'#0d1520' }, midnight:{ bg:'#05070d', text:'#f1f7ff', accent:'#ff66c4', panel:'#0a0c18', card:'#101428' } };
+  const COLORS = { Red:'#ef4444', Green:'#22c55e', Blue:'#3b82f6', Yellow:'#ffd60a', Pink:'#ec4899', Gray:'#9ca3af', Lavender:'#a78bfa', Teal:'#14b8a6', Orange:'#fb923c' };
+  const WALLPAPERS = { none:'', beach:'Beach.jpg', nature:'Nature.jpg', filter:'Fall.jpg' };
+
+  async function fetchJSON(url, { timeout=12000 }={}){ const ctrl = new AbortController(); const tt = setTimeout(()=>ctrl.abort(), timeout); try{ const res = await fetch(url,{ signal:ctrl.signal }); if(!res.ok){ const text = await res.text().catch(()=> ''); throw new Error('HTTP '+res.status+' '+res.statusText+' – '+text.slice(0,120)); } return await res.json(); } finally { clearTimeout(tt); } }
+
+  const App = {
+    _globalClickClose(e){
+      const openers = document.querySelectorAll('.popup.open');
+      openers.forEach(el=>{
+        if(!el.closest('.tasks-panel')){ // keep task list as requested
+          if(!el.contains(e.target)) el.classList.remove('open');
+        }
+      });
+    },
+        moveTask(id, dir){
+          const list = (App.state && App.state.tasks) ? App.state.tasks : (Storage.get('tasks')||[]);
+          const idx = list.findIndex(x=>x.id===id);
+          if(idx<0) return;
+          const j = idx + dir;
+          if(j<0 || j>=list.length) return;
+          [list[idx], list[j]] = [list[j], list[idx]];
+          if(App.state) App.state.tasks = list;
+          Storage.set('tasks', list);
+          if(typeof App.renderTasks==='function') App.renderTasks();
+        },
+    state: {
+      headings: Storage.get('headings', []),
+      shortcuts: Storage.get('shortcuts', []),
+      collapsed: Storage.get('collapsedHeadings', {}),
+      tasks: Storage.get('tasks', []),
+      clockFormat: localStorage.getItem('clockFormat') || '12h',
+      clockVisible: localStorage.getItem('clockVisible') !== 'false',
+      theme: localStorage.getItem('theme') || 'ocean',
+      wallpaper: localStorage.getItem('wallpaper') || 'none',
+      cal: Storage.get('calendarSettings', { width:'860px', height:'620px', top:'120px', left:'120px', url: localStorage.getItem('calendarURL') || '', visible:false }),
+      weather: Storage.get('weather', { name:'', lat:null, lon:null, temp:null }),
+      iex: Storage.get('iex', { visible:false, engine:'brave', style:'pinkblue' }),
+      dock: Storage.get('dock', { open:false, mode:'', source:'' })
+    },
+
+    init(){
+      // Menu handlers
+      document.getElementById('hamburger').onclick   = (e)=>{ e.stopPropagation(); toggleDropdown('shortcutsDrop'); };
+      document.getElementById('openTasks').onclick   = (e)=>{ e.stopPropagation(); App.toggleTasks(); };
+      document.getElementById('openThemes').onclick  = (e)=>{ e.stopPropagation(); toggleDropdown('themeDrop'); };
+      document.getElementById('openTime').onclick    = (e)=>{ e.stopPropagation(); toggleDropdown('timeDrop'); };
+      document.getElementById('openCalendar').onclick= (e)=>{ e.stopPropagation(); toggleDropdown('calendarDrop'); };
+      document.getElementById('openNavigator').onclick=(e)=>{ e.stopPropagation(); App.renderNavigator(''); toggleDropdown('navDrop'); setTimeout(()=>document.getElementById('navSearch').focus(),50); };
+      document.getElementById('toggleIEX').onclick   = (e)=>{ e.stopPropagation(); toggleDropdown('internetDrop'); };
+      document.getElementById('toggleStocks').onclick= ()=> App.toggleDock('stocks');
+      document.getElementById('toggleNews').onclick  = ()=> App.toggleDock('news');
+      document.getElementById('dockClose').onclick   = ()=> App.closeDock();
+      document.getElementById('dockSource').onchange = (e)=> App.loadDockSource(e.target.value);
+      document.getElementById('openReminders').onclick= (e)=>{ e.stopPropagation(); App.openReminder(); };
+	  document.getElementById('quickNote').onclick=e=>{e.stopPropagation();window.open('file:///C:/Users/deanr/Desktop/Ramify/NoteTaking.html','_blank');};
+      document.getElementById('weatherChip').onclick = (e)=>{ e.stopPropagation(); toggleDropdown('weatherDrop'); };
+      document.getElementById('calHelpBtn').onclick  = (e)=>{ e.stopPropagation(); document.getElementById('calHelp').classList.toggle('hidden'); };
+      document.getElementById('calOpenTab').onclick  = ()=>{ const url = document.getElementById('calendarURL').value.trim() || App.state.cal.url; if(url) window.open(url,'_blank'); };
+
+      // Internet dropdown controls
+      document.getElementById('iexToggleBtn').onclick = ()=> App.toggleIEX();
+      document.getElementById('iexEngine').onchange   = (e)=> App.setIEXEngine(e.target.value);
+      document.getElementById('iexStyle').onchange    = (e)=> App.setIEXStyle(e.target.value);
+
+      // Internet bar actions
+      document.getElementById('iexGo').onclick = App.iexNavigate;
+      document.getElementById('iexInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); App.iexNavigate(); } });
+
+      // Overlay close
+      document.getElementById('remOverlay').onclick = App.closeReminder;
+
+      // Global keys
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') hideAllDropdowns(); });
+      document.addEventListener('input', (e)=>{ if(e.target && e.target.id==='navSearch') App.renderNavigator(e.target.value); });
+
+      // Weather default
+      if(!App.state.weather || !App.state.weather.lat){ App.state.weather = { name:'Surfside, CA', lat:33.742, lon:-118.110, temp:null }; Storage.set('weather', App.state.weather); }
+
+      App.renderAll();
+      App.applyTheme();
+      App.applyClock(true);
+      App.mountCalendarDrag();
+      App.mountCalendarResizers();
+      App.refreshWeather();
+
+      // Restore selections
+      const ts=document.getElementById('themeSelect'); if(ts) ts.value=App.state.theme;
+      const ws=document.getElementById('wallpaperSelect'); if(ws) ws.value=App.state.wallpaper;
+      document.getElementById('iexEngine').value = App.state.iex.engine || 'brave';
+      document.getElementById('iexStyle').value  = App.state.iex.style  || 'pinkblue';
+
+      setInterval(App.checkReminders, 30000);
+      // Daily Messages setup
+      const dmToggle = document.getElementById('dailyMsgToggle');
+      const dmType = document.getElementById('dailyMsgType');
+      if(dmToggle && dmType){
+        dmToggle.onchange=(e)=>{ localStorage.setItem('dailyMsgEnabled', e.target.checked); };
+        dmType.onchange=(e)=>{ localStorage.setItem('dailyMsgType', e.target.value); };
+        dmToggle.checked = localStorage.getItem('dailyMsgEnabled')==='true';
+        dmType.value = localStorage.getItem('dailyMsgType')||'motivational';
+      }
+      setInterval(App.checkDailyMessage, 60000);
+
+    },
+
+    renderAll(){
+      App.renderHeadingsUI();
+      App.renderShortcutsIntoHeadings();
+      App.renderTasks();
+      App.populateHeadingSelect();
+      if(App.state.cal.url && App.state.cal.visible) App.openCalendar(true);
+      if(App.state.iex.visible) App.showIEX(); else App.hideIEX();
+      if(App.state.dock.open) App.openDock(App.state.dock.mode, true);
+    },
+
+    /* Headings */
+    renderHeadingsUI(){
+      const root = document.getElementById('headingsRoot'); root.innerHTML='';
+      App.state.headings.forEach(name=>{
+        const isCollapsed = !!App.state.collapsed[name];
+        const block = document.createElement('section');
+        block.className = 'heading-block'; block.id = `main-heading-${name}`;
+        block.innerHTML = `
+          <div class="heading-bar">
+            <div class="heading-left">
+              <button class="heading-toggle" data-name="${name}">${isCollapsed ? '▶' : '▼'}</button>
+              <span class="heading-name">${name}</span>
+            </div>
+            <div class="heading-actions">
+              <button class="chip-btn" onclick="App.openAllShortcuts('${name}')">🔗 Open all</button>
+              <button class="chip-btn" onclick="App.toggleHeadingActions(event,'${name}')">⋯</button>
+              <div class="dropdown mini-menu" id="ha-${name}">
+                <div class="row"><button class="chip-btn" onclick="App.addShortcutInline('${name}')">➕ Add shortcut here</button></div>
+                <div class="row" style="margin-top:6px"><button class="chip-btn" onclick="App.moveHeading('${name}', -1)">⬆ Move up</button></div>
+                <div class="row" style="margin-top:6px"><button class="chip-btn" onclick="App.moveHeading('${name}', 1)">⬇ Move down</button></div>
+                <div class="row" style="margin-top:6px"><button class="chip-btn" onclick="App.renameHeading('${name}')">✏️ Rename</button></div>
+                <div class="row" style="margin-top:6px"><button class="chip-btn" onclick="App.deleteHeading('${name}')">🗑️ Delete</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="cards ${isCollapsed ? '' : 'open'}" id="cards-${name}"></div>`;
+        root.appendChild(block);
+      });
+
+      // Toggle handlers (instant arrow update)
+      root.querySelectorAll('.heading-toggle').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const name = btn.dataset.name; const isCollapsed = !!App.state.collapsed[name]; const next = !isCollapsed; App.state.collapsed[name] = next ? 1 : 0; Storage.set('collapsedHeadings', App.state.collapsed); const cards = document.getElementById(`cards-${name}`); if(next){ cards.classList.remove('open'); btn.textContent='▶'; } else { cards.classList.add('open'); btn.textContent='▼'; }
+        });
+      });
+
+      // Drop targets
+      App.state.headings.forEach(name=>{
+        const container = document.getElementById(`cards-${name}`); if(!container) return;
+        container.addEventListener('dragover', (e)=> e.preventDefault());
+        container.addEventListener('drop', (e)=>{ e.preventDefault(); const draggedId = e.dataTransfer.getData('text/plain'); const srcHeading = e.dataTransfer.getData('text/x-srcHeading'); const dragged = document.getElementById(draggedId); if(!dragged) return; if(dragged.parentElement !== container) container.appendChild(dragged); const idNum = Number(draggedId.replace('card-','')); App.moveShortcutBetweenHeadings(idNum, srcHeading, name); });
+      });
+    },
+
+    openAllShortcuts(heading){
+      const bucket = App.state.shortcuts.find(h=>h.heading===heading);
+      if(!bucket || !bucket.shortcuts?.length) return;
+      const urls = bucket.shortcuts.map(sc=>sc.url).filter(Boolean);
+      const MAX = 8; // most browsers allow a burst if within click gesture
+      const toOpen = urls.slice(0, MAX);
+      let opened = 0;
+      toOpen.forEach(u=>{ try{ const a=document.createElement('a'); a.href=u; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); opened++; }catch{} });
+      if(urls.length > MAX){ App.showToast(`Opened ${opened} tabs (first ${MAX}). Click again to open the next set.`, '🔗'); }
+      if(opened===0){ App.showToast('Your browser blocked pop-ups. Allow pop-ups for this page to open all.', '⚠️'); }
+    },
+
+    renderShortcutsIntoHeadings(){
+      const map = new Map(App.state.shortcuts.map(h=>[h.heading, h.shortcuts]));
+      App.state.headings.forEach(name=>{ const container=document.getElementById(`cards-${name}`); if(!container) return; container.innerHTML=''; (map.get(name) || []).forEach(item=> App.createCard(container, name, item)); });
+    },
+
+    createCard(container, headingName, item){
+      const card = document.createElement('div'); card.className='card'; card.id = `card-${item.id}`; const hex = COLORS[item.colorName] || item.color || 'var(--card)'; card.style.background = hex;
+      try{ const url = new URL(item.url); const favicon = `https://www.google.com/s2/favicons?sz=64&domain=${url.hostname}`; card.innerHTML = `<img src="${favicon}" alt=""/><p>${item.name}</p>`; }catch{ card.innerHTML = `<p>${item.name}</p>`; }
+      card.onclick = (e)=>{ if(e.target.closest('button,select')) return; window.open(item.url,'_blank'); };
+      card.draggable=true; card.addEventListener('dragstart', (e)=>{ card.classList.add('dragging'); e.dataTransfer.setData('text/plain', card.id); e.dataTransfer.setData('text/x-srcHeading', headingName); }); card.addEventListener('dragend', ()=> card.classList.remove('dragging'));
+      container.addEventListener('dragover', (e)=> e.preventDefault());
+      container.addEventListener('drop', (e)=>{ e.preventDefault(); const draggedId=e.dataTransfer.getData('text/plain'); const dragged=document.getElementById(draggedId); if(dragged && dragged!==card){ container.insertBefore(dragged, card); App.persistCardsOrder(headingName); } });
+      App.injectShortcutRow(headingName, item);
+      container.appendChild(card);
+    },
+
+    injectShortcutRow(headingName, item){
+      const listWrapId = `admin-${headingName}`; let wrap=document.getElementById(listWrapId);
+      if(!wrap){ wrap=document.createElement('div'); wrap.id=listWrapId; wrap.style.marginTop='8px'; wrap.innerHTML=`<h4 style="margin:8px 0 6px">${headingName}</h4>`; document.getElementById('shortcutList').appendChild(wrap); }
+      if(document.getElementById(`row-${item.id}`)) return;
+      const row=document.createElement('div'); row.id=`row-${item.id}`; row.style.display='flex'; row.style.alignItems='center'; row.style.gap='6px'; row.style.margin='6px 0';
+      row.innerHTML = `<span style="flex:1">${item.name}</span><button class="chip-btn" onclick="App.editShortcut(${item.id})">✏️</button><select class="small-select" onchange="App.changeShortcutColor(${item.id}, this.value)">${Object.keys(COLORS).map(n=>`<option value='${n}' ${item.colorName===n?"selected":""}>${n}</option>`).join('')}</select><button class="chip-btn" onclick="App.deleteShortcut(${item.id})">🗑️</button>`;
+      wrap.appendChild(row);
+    },
+
+    populateHeadingSelect(){ const sel=document.getElementById('headingSelect'); sel.innerHTML = App.state.headings.map(h=>`<option value="${h}">${h}</option>`).join(''); },
+    addHeading(){ const name=document.getElementById('headingName').value.trim(); if(!name || App.state.headings.includes(name)) return; App.state.headings.push(name); Storage.set('headings', App.state.headings); App.renderHeadingsUI(); App.populateHeadingSelect(); document.getElementById('headingName').value=''; },
+    renameHeading(oldName){ const nn=prompt('New heading name:', oldName); if(!nn || nn===oldName || App.state.headings.includes(nn)) return; App.state.headings = App.state.headings.map(h=> h===oldName ? nn : h); Storage.set('headings', App.state.headings); App.state.shortcuts.forEach(h=>{ if(h.heading===oldName) h.heading=nn; }); Storage.set('shortcuts', App.state.shortcuts); if(App.state.collapsed[oldName]!==undefined){ App.state.collapsed[nn]=App.state.collapsed[oldName]; delete App.state.collapsed[oldName]; Storage.set('collapsedHeadings', App.state.collapsed); } App.renderAll(); },
+    deleteHeading(name){ if(!confirm(`Delete heading "${name}" and its shortcuts?`)) return; App.state.headings = App.state.headings.filter(h=>h!==name); Storage.set('headings', App.state.headings); App.state.shortcuts = App.state.shortcuts.filter(h=>h.heading!==name); Storage.set('shortcuts', App.state.shortcuts); delete App.state.collapsed[name]; Storage.set('collapsedHeadings', App.state.collapsed); App.renderAll(); document.getElementById('shortcutList').innerHTML=''; },
+    moveHeading(name, dir){ const i=App.state.headings.indexOf(name); const j=i+dir; if(i<0||j<0||j>=App.state.headings.length) return; [App.state.headings[i], App.state.headings[j]] = [App.state.headings[j], App.state.headings[i]]; Storage.set('headings', App.state.headings); App.renderHeadingsUI(); App.renderShortcutsIntoHeadings(); },
+    persistCardsOrder(heading){ const wrap=document.getElementById(`cards-${heading}`); const ids=[...wrap.querySelectorAll('.card')].map(n=> Number(n.id.replace('card-',''))); const bucket=App.state.shortcuts.find(h=>h.heading===heading); if(!bucket) return; const map=new Map(bucket.shortcuts.map(s=>[s.id,s])); bucket.shortcuts = ids.map(id=> map.get(id)).filter(Boolean); Storage.set('shortcuts', App.state.shortcuts); },
+    findShortcut(id){ for(const bucket of App.state.shortcuts){ const idx=bucket.shortcuts.findIndex(s=> s.id===id); if(idx!==-1) return { bucket, idx }; } return null; },
+
+    /* Navigator */
+    renderNavigator(query){ const q=(query||'').toLowerCase().trim(); const resEl=document.getElementById('navResults'); const rows=App.state.headings.filter(h=> !q || h.toLowerCase().includes(q)); resEl.innerHTML = rows.map(h=>`<div class='result-item' onclick="App.jumpToHeading('${h}')"><strong>${h}</strong></div>`).join('') || `<div style='padding:12px;color:var(--muted)'>No headings yet</div>`; },
+    jumpToHeading(name){ const el=document.getElementById('main-heading-'+name); if(!el) return; el.scrollIntoView({ behavior:'smooth', block:'start' }); hideAllDropdowns(); },
+
+    /* Tasks */
+    toggleTasks(){ document.getElementById('tasksPanel').classList.toggle('open'); },
+    addTask(){ const name=prompt('Task name:'); if(!name) return; const id=`task-${Date.now()}`; const t={ id, name, notes:'', colorName:'Gray', done:false }; App.state.tasks.push(t); Storage.set('tasks', App.state.tasks); App.renderTasks(); },
+    renderTasks(){ const body=document.getElementById('tasksBody'); body.innerHTML=''; App.state.tasks.forEach(t=>{ const card=document.createElement('div'); card.className='task-card'; card.id=t.id; const hex = COLORS[t.colorName] || '#9ca3af'; card.style.background = hex; if((t.colorName||'').toLowerCase()==='white' || hex.toLowerCase()==='#ffffff'){ card.classList.add('white'); } card.innerHTML = `<div class='task-actions'><button class=\"chip-btn\" title=\"Move up\" onclick=\"App.moveTask('${t.id}', -1)\">⬆</button><button class=\"chip-btn\" title=\"Move down\" onclick=\"App.moveTask('${t.id}', 1)\">⬇</button><input type='checkbox' ${t.done?'checked':''} onchange="App.toggleDone('${t.id}', this.checked)" /><select class='small-select' onchange="App.changeTaskColor('${t.id}', this.value)">${Object.keys(COLORS).map(n=>`<option value='${n}' ${t.colorName===n?"selected":""}>${n}</option>`).join('')}<option value='White' ${t.colorName==='White'?"selected":""}>White</option></select><button class='chip-btn' onclick="App.toggleNotes('${t.id}')">📝</button><button class='chip-btn' onclick="App.editTask('${t.id}')">✏️</button><button class='chip-btn' onclick="App.deleteTask('${t.id}')">🗑️</button></div><p class='task-title ${t.done?'done':''}' id='ttl-${t.id}'>${t.name}</p><textarea class='task-notes' id='nt-${t.id}' style='display:none'>${t.notes||''}</textarea>`; body.appendChild(card); }); body.querySelectorAll('.task-notes').forEach(el=> el.oninput = App.saveTasks); },
+    toggleDone(id, checked){ const t=App.state.tasks.find(x=>x.id===id); if(!t) return; t.done=checked; Storage.set('tasks', App.state.tasks); const ttl=document.getElementById('ttl-'+id); if(ttl) ttl.classList.toggle('done', checked); },
+    toggleNotes(id){ const el=document.getElementById('nt-'+id); el.style.display = (el.style.display==='none' ? 'block' : 'none'); },
+    editTask(id){ const t=App.state.tasks.find(x=>x.id===id); if(!t) return; const nn=prompt('Task name:', t.name); if(!nn) return; t.name=nn; Storage.set('tasks', App.state.tasks); App.renderTasks(); },
+    changeTaskColor(id, name){ const t=App.state.tasks.find(x=>x.id===id); if(!t) return; t.colorName=name; Storage.set('tasks', App.state.tasks); const card=document.getElementById(id); if(!card) return; const hex = name==='White' ? '#ffffff' : (COLORS[name]||'#9ca3af'); card.style.background = hex; if(name==='White'){ card.classList.add('white'); } else { card.classList.remove('white'); } },
+    deleteTask(id){ App.state.tasks = App.state.tasks.filter(x=>x.id!==id); Storage.set('tasks', App.state.tasks); App.renderTasks(); },
+    saveTasks(){ document.querySelectorAll('.task-card').forEach(card=>{ const id=card.id; const t=App.state.tasks.find(x=>x.id===id); if(!t) return; t.notes = card.querySelector('.task-notes').value; }); Storage.set('tasks', App.state.tasks); },
+
+    /* Theme & Wallpaper */
+    changeTheme(val){ App.state.theme = val; localStorage.setItem('theme', val); App.applyTheme(); const ts=document.getElementById('themeSelect'); if(ts) ts.value=val; },
+    changeWallpaper(key){ App.state.wallpaper=key; localStorage.setItem('wallpaper', key); App.applyTheme(); const ws=document.getElementById('wallpaperSelect'); if(ws) ws.value=key; },
+    applyTheme(){ const th=THEMES[App.state.theme]||THEMES.ocean; const wp=WALLPAPERS[App.state.wallpaper]||''; document.body.style.background=th.bg; document.body.style.backgroundImage='none'; document.body.style.color=th.text; document.documentElement.style.setProperty('--panel', th.panel); document.documentElement.style.setProperty('--card', th.card); document.documentElement.style.setProperty('--text', th.text); document.documentElement.style.setProperty('--brand', th.accent); const status=document.getElementById('wpStatus'); if(!wp){ if(status) status.textContent='No wallpaper selected.'; return; } const img=new Image(); img.onload=()=>{ document.body.style.backgroundImage=`url('${wp}')`; document.body.style.backgroundRepeat='no-repeat'; document.body.style.backgroundSize='cover'; document.body.style.backgroundPosition='center'; document.body.style.backgroundAttachment='fixed'; if(status) status.textContent = `Loaded ${wp}`; }; img.onerror=()=>{ if(status) status.textContent=`Could not find ${wp}. Make sure Beach.jpg / Nature.jpg / Fall.jpg sit next to this HTML.`; }; img.src=wp; },
+
+    /* Clock */
+    setTimeFormat(fmt){ App.state.clockFormat=fmt; localStorage.setItem('clockFormat', fmt); App.applyClock(); },
+    toggleClock(){ App.state.clockVisible=!App.state.clockVisible; localStorage.setItem('clockVisible', App.state.clockVisible); App.applyClock(); },
+    applyClock(tick=false){ const el=document.getElementById('timeDisplay'); el.style.display = App.state.clockVisible ? 'block':'none'; const now=new Date(); let s=''; if(App.state.clockFormat==='12h'){ let h=now.getHours()%12 || 12; let m=now.getMinutes().toString().padStart(2,'0'); s=`${h}:${m} ${now.getHours()>=12?'PM':'AM'}`; } else if(App.state.clockFormat==='24h'){ let h=now.getHours().toString().padStart(2,'0'); let m=now.getMinutes().toString().padStart(2,'0'); s=`${h}:${m}`; } else if(App.state.clockFormat==='date'){ s = now.toISOString().slice(0,10); } else if(App.state.clockFormat==='day'){ s=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][now.getDay()]; } el.textContent=s; if(tick!==false) setTimeout(()=>App.applyClock(true),1000); },
+
+    /* Calendar */
+    normalizeGoogleEmbed(url){ try{ const u=new URL(url); if(u.hostname!=='calendar.google.com') return url; if(u.pathname.includes('/calendar/embed')) return url; if(u.searchParams.has('cid')){ const cid=u.searchParams.get('cid'); const tz=u.searchParams.get('ctz')||'America/Detroit'; return `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%230B0F14&ctz=${encodeURIComponent(tz)}&src=${encodeURIComponent(cid)}&color=%23039be5&showPrint=0`; } }catch{} if(/^[^@]+@group\.calendar\.google\.com$/.test(url) || /@gmail\.com$/.test(url)){ const tz='America/Detroit'; return `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%230B0F14&ctz=${encodeURIComponent(tz)}&src=${encodeURIComponent(url)}&color=%23039be5&showPrint=0`; } return url; },
+    addCalendar(){ const prov=document.getElementById('calProvider').value; let url=document.getElementById('calendarURL').value.trim(); if(prov==='google'){ url=App.normalizeGoogleEmbed(url); const ok=url.startsWith('https://calendar.google.com/calendar/embed?'); if(!ok){ alert('Google: paste an Embed URL or the calendar ID.'); return; } } else { const ok = url.startsWith('https://outlook.live.com/calendar/embed?') || url.startsWith('https://outlook.office.com/'); if(!ok){ alert('Microsoft: paste a published Embed link.'); return; } } App.state.cal.url=url; App.state.cal.visible=true; Storage.set('calendarSettings', App.state.cal); localStorage.setItem('calendarURL', url); App.openCalendar(); hideAllDropdowns(); },
+    openCalendar(skipShowDrop){ const warn=document.getElementById('calWarn'); if(!App.state.cal.url) return; const win=document.getElementById('calWin'); const f=document.getElementById('calendarFrame'); warn.classList.add('hidden'); warn.textContent=''; if(location.protocol==='file:'){ warn.textContent='Opening as a local file can block calendar embeds. Click ↗ to open in a tab, or serve over http:// (e.g., VS Code Live Server).'; warn.classList.remove('hidden'); } f.src=App.state.cal.url; let loaded=false; const t=setTimeout(()=>{ if(!loaded){ warn.textContent='Calendar failed to load. Ensure it is public/published and that this is the Embed URL.'; warn.classList.remove('hidden'); } },3500); f.onload=()=>{ loaded=true; clearTimeout(t); }; win.style.display='block'; win.style.width=App.state.cal.width||'860px'; win.style.height=App.state.cal.height||'620px'; win.style.left=App.state.cal.left||'120px'; win.style.top=App.state.cal.top||'120px'; App.state.cal.visible=true; Storage.set('calendarSettings', App.state.cal); if(!skipShowDrop) hideAllDropdowns(); },
+    closeCalendar(){ document.getElementById('calWin').style.display='none'; App.state.cal.visible=false; Storage.set('calendarSettings', App.state.cal); },
+    resizeCalendar(amount){ const win=document.getElementById('calWin'); const w=Math.max(420, win.clientWidth+amount); const h=Math.max(360, win.clientHeight+Math.round(amount*0.75)); win.style.width=w+'px'; win.style.height=h+'px'; App.saveCalRect(); },
+    mountCalendarDrag(){ const header=document.getElementById('calDrag'); const win=document.getElementById('calWin'); let drag=false, ox=0, oy=0; header.addEventListener('mousedown',(e)=>{ drag=true; ox=e.clientX-win.offsetLeft; oy=e.clientY-win.offsetTop; header.style.cursor='grabbing'; }); document.addEventListener('mousemove',(e)=>{ if(!drag) return; win.style.left=(e.clientX-ox)+'px'; win.style.top=(e.clientY-oy)+'px'; }); document.addEventListener('mouseup',()=>{ if(!drag) return; drag=false; header.style.cursor='grab'; App.saveCalRect(); }); },
+    mountCalendarResizers(){ const win=document.getElementById('calWin'); let resizing=false; let dir=''; let sx=0, sy=0; let sw=0, sh=0, sl=0, st=0; const start=(d,e)=>{ e.preventDefault(); resizing=true; dir=d; sx=e.clientX; sy=e.clientY; const r=win.getBoundingClientRect(); sw=r.width; sh=r.height; sl=r.left; st=r.top; document.body.style.userSelect='none'; }; const move=(e)=>{ if(!resizing) return; let dx=e.clientX-sx; let dy=e.clientY-sy; if(dir.includes('e')){ win.style.width=Math.max(420, sw+dx)+'px'; } if(dir.includes('s')){ win.style.height=Math.max(360, sh+dy)+'px'; } if(dir.includes('w')){ const nw=Math.max(420, sw-dx); win.style.width=nw+'px'; win.style.left=(sl+(sw-nw))+'px'; } if(dir.includes('n')){ const nh=Math.max(360, sh-dy); win.style.height=nh+'px'; win.style.top=(st+(sh-nh))+'px'; } }; const end=()=>{ if(!resizing) return; resizing=false; document.body.style.userSelect=''; App.saveCalRect(); }; ['e','w','s','n','se','sw','ne','nw'].forEach(d=>{ const el=document.querySelector('.cal-resizer.'+d); el.addEventListener('mousedown', start.bind(null,d)); }); document.addEventListener('mousemove', move); document.addEventListener('mouseup', end); },
+    saveCalRect(){ const win=document.getElementById('calWin'); App.state.cal.width=win.style.width; App.state.cal.height=win.style.height; App.state.cal.left=win.style.left; App.state.cal.top=win.style.top; Storage.set('calendarSettings', App.state.cal); },
+
+    /* Reminders */
+    openReminder(){ App.loadReminders(); document.getElementById('remModal').classList.remove('hidden'); document.getElementById('remOverlay').classList.remove('hidden'); },
+    closeReminder(){ document.getElementById('remModal').classList.add('hidden'); document.getElementById('remOverlay').classList.add('hidden'); },
+    saveReminder(){ const title=document.getElementById('remTitle').value.trim(); const dateTime=document.getElementById('remDT').value; const emoji=document.getElementById('remEmoji').value; if(!title||!dateTime){ alert('Add title & date/time'); return; } const reminders=Storage.get('reminders',[]); reminders.push({ id:Date.now(), title, dateTime, emoji }); Storage.set('reminders', reminders); App.loadReminders(); App.closeReminder(); },
+    loadReminders(){ const list=document.getElementById('remList'); list.innerHTML=''; const reminders=Storage.get('reminders',[]); reminders.sort((a,b)=> new Date(a.dateTime)-new Date(b.dateTime)); reminders.forEach(r=>{ const li=document.createElement('li'); const when=new Date(r.dateTime).toLocaleString(); li.innerHTML = `${r.emoji||''} <strong>${r.title}</strong> <small style='color:var(--muted)'>(${when})</small> <button class='chip-btn' style='float:right' onclick='App.deleteReminder(${r.id})'>❌</button>`; list.appendChild(li); }); },
+    deleteReminder(id){ const rs=Storage.get('reminders',[]).filter(r=>r.id!==id); Storage.set('reminders', rs); App.loadReminders(); },
+    showToast(text, emoji){ const t=document.getElementById('remToast'); document.getElementById('remToastText').textContent=text; document.getElementById('remToastEmoji').textContent=emoji||'🔔'; t.classList.remove('hidden'); void t.offsetWidth; t.style.opacity=1; setTimeout(App.hideToast, 60000); },
+    hideToast(){ const t=document.getElementById('remToast'); t.style.opacity=0; setTimeout(()=>t.classList.add('hidden'),180); },
+    checkReminders(){ const now=new Date(); let rs=Storage.get('reminders',[]); const due=rs.filter(r=>{ const t=new Date(r.dateTime); return now>=t && (now-t)<60000; }); if(due.length){ const r=due[0]; App.showToast(`${r.title}`, r.emoji||'🔔'); rs = rs.filter(x=>x.id!==r.id); Storage.set('reminders', rs); } },
+
+
+  dailyMessages:{
+    biblical:[
+      "The Lord is my shepherd; I shall not want.",
+      "I can do all things through Christ who strengthens me.",
+      "Be strong and courageous. Do not be afraid.",
+      "Love your neighbor as yourself."
+    ],
+    motivational:[
+      "Believe you can and you're halfway there.",
+      "Small steps every day lead to big results.",
+      "Dream big. Work hard. Stay focused.",
+      "Your limitation—it's only your imagination."
+    ]
+  },
+
+  checkDailyMessage(){
+    const enabled=localStorage.getItem('dailyMsgEnabled')==='true';
+    if(!enabled) return;
+    const now=new Date();
+    if(now.getHours()===8 && now.getMinutes()===0){
+      const type=localStorage.getItem('dailyMsgType')||'motivational';
+      const arr=App.dailyMessages[type]||[];
+      const msg=arr[Math.floor(Math.random()*arr.length)]||'Have a great day!';
+      App.showDailyPopup(msg);
+    }
+  },
+
+  showDailyPopup(text){
+    const el=document.getElementById('dailyPopup');
+    document.getElementById('dailyPopupText').textContent=text;
+    el.classList.remove('hidden'); el.style.pointerEvents='auto';
+    void el.offsetWidth; el.style.opacity=1;
+  },
+
+  hideDailyPopup(){
+    const el=document.getElementById('dailyPopup');
+    el.style.opacity=0; setTimeout(()=>{ el.classList.add('hidden'); el.style.pointerEvents='none'; },300);
+  },
+
+    /* Weather */
+    async searchWeather(){ const q=document.getElementById('wxQuery').value.trim(); const box=document.getElementById('wxResults'); box.innerHTML='Searching…'; if(!q){ box.innerHTML='<span style="color:var(--muted)">Type a city</span>'; return; } try{ const url=`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=5`; const geo=await fetchJSON(url); if(!geo?.results?.length){ box.innerHTML='<span style="color:var(--muted)">No results</span>'; return; } box.innerHTML = geo.results.map((r,i)=>`<div class="result-item" data-idx="${i}">${[r.name, r.region, r.country].filter(Boolean).join(', ')}</div>`).join(''); box.querySelectorAll('.result-item').forEach(el=>{ const i=Number(el.dataset.idx); el.addEventListener('click', ()=>{ const r=geo.results[i]; const name=[r.name, r.region, r.country].filter(Boolean).join(', '); App.pickWeather(r.latitude, r.longitude, name); }); }); }catch(e){ box.innerHTML='<span style="color:var(--muted)">Error searching (see console)</span>'; console.error(e); } },
+    async pickWeather(lat,lon,name){ App.state.weather={ name, lat, lon, temp:null }; Storage.set('weather', App.state.weather); await App.refreshWeather(); },
+    async refreshWeather(){ const city=document.getElementById('weatherCity'); const nowEl=document.getElementById('weatherNow'); const curBox=document.getElementById('wxCurrent'); const w=App.state.weather; if(!w.lat||!w.lon){ city.textContent=''; nowEl.textContent='--°'; curBox.innerHTML='<span style="color:var(--muted)">Pick a city to see weather.</span>'; return; } city.textContent=w.name; curBox.innerHTML='Loading…'; try{ const url=`https://api.open-meteo.com/v1/forecast?latitude=${w.lat}&longitude=${w.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&temperature_unit=fahrenheit`; const data=await fetchJSON(url); if(!data?.current||!data?.daily) throw new Error('Bad weather shape'); const t=Math.round(data.current.temperature_2m); nowEl.textContent=t+'°'; const days=[0,1,2].filter(i=> data.daily.time?.[i] != null); curBox.innerHTML = `<div style='display:flex;gap:10px;align-items:center;margin-top:6px'><div style='font-weight:800;font-size:18px'>${t}° now</div><div style='color:var(--muted)'>${w.name}</div></div><div style='display:grid;grid-template-columns:repeat(${days.length},1fr);gap:8px;margin-top:8px'>${days.map(i=>`<div style='background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;text-align:center'><div style='font-weight:700'>${new Date(data.daily.time[i]).toLocaleDateString(undefined,{weekday:'short'})}</div><div><strong>${Math.round(data.daily.temperature_2m_max[i])}°</strong> / ${Math.round(data.daily.temperature_2m_min[i])}°</div></div>`).join('')}</div>`; }catch(e){ console.error('[WX]',e); nowEl.textContent='--°'; curBox.innerHTML='<span style="color:var(--muted)">Weather unavailable (see console)</span>'; } },
+
+    /* Internet (search bar only) */
+    toggleIEX(){ App.state.iex.visible = !App.state.iex.visible; Storage.set('iex', App.state.iex); if(App.state.iex.visible) App.showIEX(); else App.hideIEX(); },
+    showIEX(){ const p=document.getElementById('iexPanel'); p.classList.remove('hidden'); App.applyIEXStyle(); hideAllDropdowns(); Storage.set('iex', App.state.iex); },
+    hideIEX(){ const p=document.getElementById('iexPanel'); p.classList.add('hidden'); hideAllDropdowns(); Storage.set('iex', App.state.iex); },
+    setIEXEngine(val){ App.state.iex.engine=val; Storage.set('iex', App.state.iex); },
+    setIEXStyle(val){ App.state.iex.style=val; Storage.set('iex', App.state.iex); App.applyIEXStyle(); },
+    applyIEXStyle(){ const p=document.getElementById('iexPanel'); p.className = `iex iex--${App.state.iex.style || 'pinkblue'} ${App.state.iex.visible ? '' : 'hidden'}`.trim(); },
+    iexNavigate(){ const q=(document.getElementById('iexInput').value||'').trim(); if(!q) return; const eng=App.state.iex.engine||'brave'; const url=App.searchURL(eng, q); window.open(url, '_blank'); },
+    searchURL(engine, query){ switch(engine){ case 'google': return `https://www.google.com/search?q=${encodeURIComponent(query)}`; case 'bing': return `https://www.bing.com/search?q=${encodeURIComponent(query)}`; default: return `https://search.brave.com/search?q=${encodeURIComponent(query)}`; } },
+
+    /* Left Dock (Stocks/News) */
+    toggleDock(mode){ if(App.state.dock.open && App.state.dock.mode===mode){ App.closeDock(); return; } App.openDock(mode); },
+    openDock(mode, restoring=false){ const dock=document.getElementById('leftDock'); document.body.classList.add('dock-open'); const title=document.getElementById('dockTitle'); const srcSel=document.getElementById('dockSource'); const presets = (mode==='stocks') ? App.stockPresets() : App.newsPresets(); srcSel.innerHTML = presets.map(p=>`<option value="${p.key}">${p.name}</option>`).join(''); const picked = App.state.dock.source && presets.some(p=>p.key===App.state.dock.source) ? App.state.dock.source : presets[0].key; srcSel.value=picked; title.textContent = mode==='stocks' ? 'Stocks' : 'News'; dock.style.display='block'; App.state.dock={ open:true, mode, source:picked }; Storage.set('dock', App.state.dock); App.loadDockSource(picked); },
+    closeDock(){ const dock=document.getElementById('leftDock'); dock.style.display='none'; document.body.classList.remove('dock-open'); App.state.dock.open=false; Storage.set('dock', App.state.dock); },
+    stockPresets(){ return [ {key:'overview', name:'Market Overview'}, {key:'tape', name:'Ticker Tape'}, {key:'crypto', name:'Crypto Screener'} ]; },
+    newsPresets(){ return [ { key:'hn', name:'Tech: Hacker News' }, { key:'bbc-world', name:'BBC: World' }, { key:'npr-top', name:'NPR: Top Stories' }, { key:'ars', name:'Ars Technica' } ]; },
+
+    loadDockSource(key){ const body=document.getElementById('dockBody'); body.innerHTML=''; if(App.state.dock.mode==='stocks'){ App.state.dock.source=key; Storage.set('dock', App.state.dock); const wrap=document.createElement('div'); wrap.className='widget'; body.appendChild(wrap); if(key==='overview') App.injectTVWidget(wrap, 'market-overview'); if(key==='tape') App.injectTVWidget(wrap, 'ticker-tape'); if(key==='crypto') App.injectTVWidget(wrap, 'crypto'); return; } App.state.dock.source=key; Storage.set('dock', App.state.dock); if(key==='hn') return App.renderHN(body); if(key==='bbc-world') return App.renderRSS(body, 'https://feeds.bbci.co.uk/news/world/rss.xml'); if(key==='npr-top') return App.renderRSS(body, 'https://feeds.npr.org/1001/rss.xml'); if(key==='ars') return App.renderRSS(body, 'https://feeds.arstechnica.com/arstechnica/index'); },
+
+    async renderHN(body){ body.innerHTML = `<div class='list'><div class='item'>Loading Hacker News…</div></div>`; try{ const ids = await fetchJSON('https://hacker-news.firebaseio.com/v0/topstories.json'); const top = ids.slice(0,30); const items = await Promise.all(top.map(async id=>{ try{ return await fetchJSON(`https://hacker-news.firebaseio.com/v0/item/${id}.json`); }catch{return null;} })); const list=document.createElement('div'); list.className='list'; items.filter(Boolean).forEach(it=>{ const href=it.url || `https://news.ycombinator.com/item?id=${it.id}`; const div=document.createElement('div'); div.className='item'; let fav=''; try{ const u=new URL(href); const f=`https://www.google.com/s2/favicons?sz=64&domain=${u.hostname}`; fav = `<img class='favicon' src='${f}' alt=''>`; }catch{} div.innerHTML=fav; const a=document.createElement('a'); a.href=href; a.target='_blank'; a.rel='noopener'; a.textContent=it.title; div.appendChild(a); const meta=document.createElement('div'); meta.className='meta'; const when=it.time ? new Date(it.time*1000).toLocaleString() : ''; meta.textContent = `Hacker News ${when? '• ' + when : ''}`; div.appendChild(meta); list.appendChild(div); }); body.innerHTML=''; body.appendChild(list); }catch(e){ console.error('[HN]', e); body.innerHTML = `<div class='empty'>Could not load Hacker News.</div>`; } },
+
+    async renderRSS(body, rssUrl){ body.innerHTML = `<div class='list'><div class='item'>Loading news…</div></div>`; const draw=(items, feedTitle='')=>{ const list=document.createElement('div'); list.className='list'; items.slice(0,30).forEach(entry=>{ const href=entry.link || entry.url || '#'; const div=document.createElement('div'); div.className='item'; let fav=''; try{ const u=new URL(href); const f=`https://www.google.com/s2/favicons?sz=64&domain=${u.hostname}`; fav = `<img class='favicon' src='${f}' alt=''>`; }catch{} div.innerHTML=fav; const a=document.createElement('a'); a.href=href; a.target='_blank'; a.rel='noopener'; a.textContent=entry.title || '(no title)'; div.appendChild(a); const meta=document.createElement('div'); meta.className='meta'; const date=entry.pubDate || entry.date || entry.published || ''; const when=date ? new Date(date).toLocaleString() : ''; meta.textContent = `${feedTitle} ${when? '• ' + when : ''}`.trim(); div.appendChild(meta); list.appendChild(div); }); body.innerHTML=''; body.appendChild(list); };
+      try{ const api=`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`; const data=await fetchJSON(api); if(data?.items?.length) return draw(data.items, data.feed?.title || ''); throw new Error('rss2json empty'); } catch(e1){ try{ const prox=(u)=>`https://r.jina.ai/${u.startsWith('http')?u:'https://'+u}`; const resp=await fetch(prox(rssUrl)); const xmlText=await resp.text(); const doc=new DOMParser().parseFromString(xmlText,'text/xml'); const channelTitle=doc.querySelector('channel>title')?.textContent || doc.querySelector('feed>title')?.textContent || ''; const items=[]; doc.querySelectorAll('item, entry').forEach(n=>{ items.push({ title:n.querySelector('title')?.textContent || '', link: n.querySelector('link')?.getAttribute('href') || n.querySelector('link')?.textContent || '', pubDate:n.querySelector('pubDate')?.textContent || n.querySelector('updated')?.textContent || n.querySelector('published')?.textContent || '' }); }); if(items.length) return draw(items, channelTitle); throw new Error('Parsed 0 items'); } catch(e2){ console.error('[NEWS] both failed', e1, e2); body.innerHTML = `<div class='empty'>News feed blocked or unavailable. Try another source.</div>`; } }
+    },
+
+    /* Stocks widgets (TradingView official) */
+    injectTVWidget(container, type){ const s=document.createElement('script'); s.async=true; if(type==='ticker-tape'){ s.src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js'; s.innerHTML=JSON.stringify({ symbols:[ {proName:'FOREXCOM:SPXUSD',title:'S&P 500'},{proName:'NASDAQ:NDX',title:'Nasdaq 100'},{proName:'DJI',title:'Dow 30'},{proName:'CME_MINI:ES1!',title:'S&P 500 Futures'},{proName:'BITSTAMP:BTCUSD',title:'BTC/USD'},{proName:'OANDA:EURUSD',title:'EUR/USD'} ], showSymbolLogo:true, colorTheme:'dark', isTransparent:true, displayMode:'adaptive', locale:'en' }); } else if(type==='crypto'){ s.src='https://s3.tradingview.com/external-embedding/embed-widget-screener.js'; s.innerHTML=JSON.stringify({ defaultColumn:'overview', screener_type:'crypto_mkt', displayCurrency:'USD', colorTheme:'dark', isTransparent:true, locale:'en', width:'100%', height:'100%' }); } else { s.src='https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js'; s.innerHTML=JSON.stringify({ colorTheme:'dark', dateRange:'1D', showChart:true, locale:'en', isTransparent:true, width:'100%', height:'100%', tabs:[ {title:'Indices', symbols:[{s:'FOREXCOM:SPXUSD'},{s:'NASDAQ:NDX'},{s:'DJI'},{s:'CME_MINI:ES1!'}]}, {title:'Forex', symbols:[{s:'OANDA:EURUSD'},{s:'OANDA:GBPUSD'},{s:'OANDA:USDJPY'}]}, {title:'Crypto', symbols:[{s:'BITSTAMP:BTCUSD'},{s:'COINBASE:ETHUSD'},{s:'BINANCE:SOLUSDT'}]} ] }); }
+      const box=document.createElement('div'); box.className='tradingview-widget-container'; const inner=document.createElement('div'); inner.className='tradingview-widget-container__widget'; box.appendChild(inner); container.appendChild(box); container.appendChild(s); },
+  };
+
+  // Dropdown helpers
+  function hideAllDropdowns(){ ['shortcutsDrop','themeDrop','timeDrop','calendarDrop','weatherDrop','navDrop','internetDrop'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; }); document.querySelectorAll('.mini-menu').forEach(m=> m.style.display='none'); }
+  function toggleDropdown(id){ const el=document.getElementById(id); const open = el.style.display==='block'; hideAllDropdowns(); el.style.display = open ? 'none' : 'block'; }
+  App.toggleHeadingActions = (ev, name, forceClose=false)=>{ const id='ha-'+name; const el=document.getElementById(id); if(ev) ev.stopPropagation(); if(forceClose){ el.style.display='none'; return; } const show = el.style.display!=='block'; hideAllDropdowns(); el.style.display = show ? 'block' : 'none'; el.addEventListener('click', e=> e.stopPropagation(), { once:true }); };
+
+  window.addEventListener('DOMContentLoaded', App.init);
+  
+// === Patch: add missing shortcut creation functions ===
+if(!App.addShortcut){
+  App.addShortcut = function(){
+    try{
+      const sel = document.getElementById('headingSelect');
+      const heading = sel && sel.value;
+      const name = (document.getElementById('shortcutName').value || '').trim();
+      const url  = (document.getElementById('shortcutURL').value || '').trim();
+      if(!heading){ App.showToast('Pick a heading first', '⚠️'); return; }
+      if(!name || !url){ App.showToast('Name and URL required', '⚠️'); return; }
+      const id = Date.now();
+      const item = { id, name, url, colorName: 'Default' };
+      let bucket = App.state.shortcuts.find(h=>h.heading===heading);
+      if(!bucket){ bucket = { heading, shortcuts: [] }; App.state.shortcuts.push(bucket); }
+      bucket.shortcuts.push(item);
+      Storage.set('shortcuts', App.state.shortcuts);
+      const container = document.getElementById(`cards-${heading}`);
+      if(container){ App.createCard(container, heading, item); }
+      App.injectShortcutRow(heading, item);
+      const n=document.getElementById('shortcutName'); if(n) n.value='';
+      const u=document.getElementById('shortcutURL'); if(u) u.value='';
+      App.showToast('Shortcut added', '✅');
+    }catch(e){ console.error('[addShortcut]', e); App.showToast('Could not add shortcut (see console)', '⚠️'); }
+  };
+}
+if(!App.addShortcutInline){
+  App.addShortcutInline = function(heading){
+    const name = prompt('Shortcut name:');
+    if(!name) return;
+    const url = prompt('URL (https://…):','https://');
+    if(!url) return;
+    const id = Date.now();
+    const item = { id, name: name.trim(), url: url.trim(), colorName: 'Default' };
+    let bucket = App.state.shortcuts.find(h=>h.heading===heading);
+    if(!bucket){ bucket = { heading, shortcuts: [] }; App.state.shortcuts.push(bucket); }
+    bucket.shortcuts.push(item);
+    Storage.set('shortcuts', App.state.shortcuts);
+    const container = document.getElementById(`cards-${heading}`);
+    if(container){ App.createCard(container, heading, item); }
+    App.injectShortcutRow(heading, item);
+    App.showToast('Shortcut added', '✅');
+  };
+}
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  if(document && !window.__clickCloserAttached){
+    document.addEventListener('click', App._globalClickClose, true);
+    window.__clickCloserAttached = true;
+  }
+});</script><style id=ramify-merge-2025-08-16b-css>.cards .card{background:linear-gradient(135deg,rgba(125,211,252,.12),rgba(125,211,252,.05) 60%),var(--card)!important;border-color:rgba(125,211,252,.28)!important}.card{position:relative}.card .tools{position:absolute;right:8px;top:8px;display:flex;gap:6px;opacity:0;transition:opacity .2s ease}.card:hover .tools{opacity:1}.task-actions .chip-btn,.tools .mini{height:28px;min-width:28px;padding:0 8px;font-size:12px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:var(--text);cursor:pointer}.task-actions .small-select,.tools .mini.small-select{padding:0 6px;min-width:unset;height:28px;font-size:12px}.dropdown.settings{position:absolute;top:44px;right:0;min-width:320px;background:var(--panel);border:1px solid rgba(125,211,252,.28);border-radius:14px;padding:12px;display:none;box-shadow:0 16px 50px rgba(0,0,0,.55)}.dropdown.settings h3{margin:4px 0 8px}.dropdown.settings .chip{padding:6px 10px;border:1px solid rgba(125,211,252,.28);border-radius:999px;background:rgba(255,255,255,.04);cursor:pointer}.dropdown.settings .chip:hover{background:rgba(255,255,255,.09)}.muted{color:var(--muted)}</style><script id=ramify-merge-2025-08-16b-js>(function(){
+  function $(sel, root=document){ return root.querySelector(sel); }
+  function $all(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+  function safe(fn){ try{ fn(); }catch(e){ console.warn('[Ramify merge patch]', e); } }
+
+  function exportAllLocalStorage(){
+    const dump = {};
+    for(let i=0;i<localStorage.length;i++){
+      const k = localStorage.key(i);
+      dump[k] = localStorage.getItem(k);
+    }
+    const payload = { version: 2, exportedAt: new Date().toISOString(), storage: dump };
+    const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download='ramify_config.json'; document.body.appendChild(a); a.click();
+    setTimeout(()=>{ a.remove(); URL.revokeObjectURL(url); }, 0);
+  }
+
+  function importAllLocalStorage(file){
+    const reader = new FileReader();
+    reader.onload = (ev)=>{
+      try{
+        const data = JSON.parse(String(ev.target.result||'{}'));
+        if(!data || typeof data!=='object') throw new Error('Invalid file');
+        const store = data.storage || data.state || {};
+        const entries = store.storage ? store.storage : store;
+        let wrote = 0;
+        for(const [k,v] of Object.entries(entries)){
+          try{ localStorage.setItem(k, typeof v==='string'? v : JSON.stringify(v)); wrote++; }catch{}
+        }
+        alert(`Imported ${wrote} keys. Reloading…`);
+        location.reload();
+      }catch(err){
+        console.error(err); alert('Import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // After app bootstraps
+  window.addEventListener('DOMContentLoaded', function(){
+    // 1) Place Settings + Download/Upload next to the bell
+    safe(function mountSettings(){
+      const menu = document.getElementById('topMenu');
+      const bell = document.getElementById('openReminders');
+      if(!menu || !bell) return;
+      // Wrap group
+      let group = document.getElementById('settingsGroup');
+      if(!group){
+        group = document.createElement('span');
+        group.id = 'settingsGroup';
+        group.style.display='inline-flex'; group.style.alignItems='center'; group.style.gap='8px'; group.style.position='relative';
+        bell.insertAdjacentElement('afterend', group);
+      }
+      // Settings button
+      let btn = document.getElementById('openSettings');
+      if(!btn){
+        btn = document.createElement('button');
+        btn.className='icon-btn'; btn.id='openSettings'; btn.title='Settings'; btn.textContent='⚙️';
+        group.appendChild(btn);
+      }
+      // Download / Upload
+      let dl = document.getElementById('downloadBtn');
+      if(!dl){ dl = document.createElement('button'); dl.className='icon-btn'; dl.id='downloadBtn'; dl.title='Download configuration'; dl.textContent='⬇️'; group.appendChild(dl); }
+      let ul = document.getElementById('uploadBtn');
+      if(!ul){ ul = document.createElement('button'); ul.className='icon-btn'; ul.id='uploadBtn'; ul.title='Upload configuration'; ul.textContent='⬆️'; group.appendChild(ul); }
+      let fi = document.getElementById('configFileInput');
+      if(!fi){ fi = document.createElement('input'); fi.type='file'; fi.accept='.json,application/json'; fi.id='configFileInput'; fi.style.display='none'; group.appendChild(fi); }
+
+      // Dropdown panel
+      let dd = document.getElementById('settingsDrop');
+      if(!dd){
+        dd = document.createElement('div'); dd.id='settingsDrop'; dd.className='dropdown settings';
+        dd.innerHTML = `
+          <h3>Settings</h3>
+          <div class="row">
+            <button class="chip" id="aboutBtn">ℹ️ About</button>
+            <button class="chip" id="contactBtn">✉️ Contact Owner</button>
+            <button class="chip" id="ipBtn">🛡️ Intellectual Property</button>
+          </div>
+          <div style="height:6px"></div>
+          <div id="settingsPane" class="muted">Choose a section above.</div>`;
+        group.appendChild(dd);
+      }
+
+      function hideAll(){ dd.style.display='none'; }
+      btn.onclick = (e)=>{ e.stopPropagation(); dd.style.display = (dd.style.display==='block') ? 'none' : 'block'; };
+      document.addEventListener('click', hideAll);
+      dd.addEventListener('click', (e)=> e.stopPropagation());
+
+      const pane = document.getElementById('settingsPane');
+      document.getElementById('aboutBtn').onclick = ()=>{
+        pane.innerHTML = "<b>Ramify</b> is a personal start page for headings, shortcuts, and tasks. Everything is saved to your browser's <em>localStorage</em>; nothing is uploaded.";
+      };
+      document.getElementById('contactBtn').onclick = ()=>{
+        const email = localStorage.getItem('ownerEmail') || 'owner@example.com';
+        pane.innerHTML = `Contact the owner at <a href="mailto:${email}">${email}</a>.`;
+      };
+      document.getElementById('ipBtn').onclick = ()=>{
+        pane.innerHTML = "All trademarks are property of their owners. No license is granted by saving links here. Do not store sensitive or confidential information.";
+      };
+
+      // Export / Import
+      dl.onclick = exportAllLocalStorage;
+      ul.onclick = ()=> fi.click();
+      fi.onchange = (e)=>{ const file = e.target.files && e.target.files[0]; if(file) importAllLocalStorage(file); fi.value=''; };
+    });
+
+    // 2) Shortcuts — ensure edit/delete/color work; silence “Shortcut added” popup
+    safe(function patchShortcuts(){
+      if(!window.App){ return; }
+
+      // Helper: default non-grey color
+      const DEFAULT_SHORTCUT_COLOR = 'Teal';
+
+      // Override add functions silently
+      App.addShortcut = function(){
+        const sel = document.getElementById('headingSelect');
+        const heading = sel && sel.value;
+        const name = (document.getElementById('shortcutName')?.value || '').trim() || 'New Shortcut';
+        const url  = (document.getElementById('shortcutURL')?.value  || '').trim() || 'https://example.com';
+        if(!heading){ return; }
+        const id = Date.now();
+        const item = { id, name, url, colorName: DEFAULT_SHORTCUT_COLOR };
+        let bucket = App.state.shortcuts.find(h=>h.heading===heading);
+        if(!bucket){ bucket = { heading, shortcuts: [] }; App.state.shortcuts.push(bucket); }
+        bucket.shortcuts.push(item);
+        Storage.set('shortcuts', App.state.shortcuts);
+        const container = document.getElementById(`cards-${heading}`);
+        if(container){ App.createCard(container, heading, item); App.injectShortcutRow(heading, item); }
+        if(document.getElementById('shortcutName')) document.getElementById('shortcutName').value='';
+        if(document.getElementById('shortcutURL')) document.getElementById('shortcutURL').value='';
+        App.populateHeadingSelect?.();
+        // No toast
+      };
+
+      App.addShortcutInline = function(heading){
+        const name = prompt('Shortcut name:'); if(!name) return;
+        const url  = prompt('URL (https://…):','https://'); if(!url) return;
+        const id = Date.now();
+        const item = { id, name: name.trim(), url: url.trim(), colorName: DEFAULT_SHORTCUT_COLOR };
+        let bucket = App.state.shortcuts.find(h=>h.heading===heading);
+        if(!bucket){ bucket = { heading, shortcuts: [] }; App.state.shortcuts.push(bucket); }
+        bucket.shortcuts.push(item);
+        Storage.set('shortcuts', App.state.shortcuts);
+        const container = document.getElementById(`cards-${heading}`);
+        if(container){ App.createCard(container, heading, item); App.injectShortcutRow(heading, item); }
+        // No toast
+      };
+
+      // Implement edit/delete/color using existing state shape
+      App.editShortcut = function(id){
+        const loc = App.findShortcut(id); if(!loc) return;
+        const sc = loc.bucket.shortcuts[loc.idx];
+        const nn = prompt('Shortcut name:', sc.name); if(nn===null) return;
+        const nu = prompt('Shortcut URL:', sc.url); if(nu===null) return;
+        sc.name = (nn||'').trim() || sc.name;
+        sc.url  = (nu||'').trim()  || sc.url;
+        Storage.set('shortcuts', App.state.shortcuts);
+        // Update UI
+        const card = document.getElementById('card-'+id);
+        if(card){
+          const p = card.querySelector('p'); if(p) p.textContent = sc.name;
+          try{
+            const u = new URL(sc.url);
+            const fav = `https://www.google.com/s2/favicons?sz=64&domain=${u.hostname}`;
+            let img = card.querySelector('img'); if(!img){ img=document.createElement('img'); card.insertBefore(img, card.firstChild); }
+            img.src = fav;
+          }catch{}
+        }
+        const row = document.getElementById('row-'+id);
+        if(row){ const span=row.querySelector('span'); if(span) span.textContent = sc.name; }
+      };
+
+      App.changeShortcutColor = function(id, name){
+        const loc = App.findShortcut(id); if(!loc) return;
+        const sc = loc.bucket.shortcuts[loc.idx];
+        sc.colorName = name;
+        Storage.set('shortcuts', App.state.shortcuts);
+        const card = document.getElementById('card-'+id);
+        if(card){
+          const COLORS = window.COLORS || { Teal:'#14b8a6', Lavender:'#a78bfa', Gray:'#9ca3af', Blue:'#3b82f6', White:'#ffffff' };
+          const hex = (COLORS[name] || '#0f1c25');
+          card.style.background = hex;
+          if((name||'').toLowerCase()==='white'){ card.classList.add('white'); } else { card.classList.remove('white'); }
+        }
+      };
+
+      App.deleteShortcut = function(id){
+        const loc = App.findShortcut(id); if(!loc) return;
+        loc.bucket.shortcuts.splice(loc.idx,1);
+        Storage.set('shortcuts', App.state.shortcuts);
+        const card = document.getElementById('card-'+id); if(card) card.remove();
+        const row  = document.getElementById('row-'+id);  if(row)  row.remove();
+      };
+    });
+
+    // 3) Tasks — add up/down arrows to each card
+    safe(function patchTasks(){
+      if(!window.App) return;
+      // Provide moveTask
+      App.moveTask = function(id, dir){
+        const i = App.state.tasks.findIndex(x=> x.id===id); if(i<0) return;
+        const j = i + dir; if(j<0 || j>=App.state.tasks.length) return;
+        const tmp = App.state.tasks[i]; App.state.tasks[i] = App.state.tasks[j]; App.state.tasks[j] = tmp;
+        Storage.set('tasks', App.state.tasks);
+        App.renderTasks();
+      };
+
+      // Wrap original renderTasks to inject arrows
+      const orig = App.renderTasks.bind(App);
+      App.renderTasks = function(){
+        orig();
+        const body = document.getElementById('tasksBody'); if(!body) return;
+        $all('.task-card', body).forEach(card=>{
+          if(card.dataset.enhanced === '1') return;
+          const actions = card.querySelector('.task-actions');
+          if(actions){
+            const id = card.id && card.id.replace(/^task-?/,'task-') || (actions.querySelector('input')?.id?.replace(/^.+-/,'') || '');
+            // Insert arrows at the front
+            const up = document.createElement('button'); up.className='chip-btn'; up.title='Move up'; up.textContent='⬆';
+            const dn = document.createElement('button'); dn.className='chip-btn'; dn.title='Move down'; dn.textContent='⬇';
+            actions.insertBefore(dn, actions.firstChild);
+            actions.insertBefore(up, actions.firstChild);
+            up.onclick = ()=> App.moveTask(card.id, -1);
+            dn.onclick = ()=> App.moveTask(card.id, 1);
+          }
+          card.dataset.enhanced = '1';
+        });
+      };
+
+      // Also set nicer default when adding tasks
+      const originalAddTask = App.addTask?.bind(App);
+      if(originalAddTask){
+        App.addTask = function(){
+          const before = App.state.tasks.length;
+          originalAddTask();
+          // Ensure newly added task gets a modern default color
+          const last = App.state.tasks[App.state.tasks.length-1];
+          if(last && !last.colorName) last.colorName = 'Lavender';
+          Storage.set('tasks', App.state.tasks);
+          App.renderTasks();
+        };
+      }
+      // Initial re-render to attach arrows
+      App.renderTasks();
+    });
+  });
+})();</script><style id=ramify-merge-2025-08-16c-css>#settingsGroup{position:relative}#settingsDrop.dropdown.settings{right:auto!important;left:-320px!important;max-width:420px}#configDrop{position:absolute;top:44px;left:-180px;min-width:200px;background:var(--panel);border:1px solid rgba(125,211,252,.28);border-radius:14px;padding:10px;display:none;box-shadow:0 16px 50px rgba(0,0,0,.55)}#configDrop .chip{padding:6px 10px;border:1px solid rgba(125,211,252,.28);border-radius:999px;background:rgba(255,255,255,.04);cursor:pointer;display:block;margin:4px 0}#configDrop .chip:hover{background:rgba(255,255,255,.09)}</style><script id=ramify-merge-2025-08-16c-js>(function(){
+  function $all(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+  function safe(fn){ try{ fn(); }catch(e){ console.warn('[Ramify c-patch]', e); } }
+
+  // Global click-away: close any dropdown/pop menu when clicking outside (except task list UIs)
+  document.addEventListener('click', function(ev){
+    $all('.dropdown, #configDrop').forEach(el=>{
+      if(!el.contains(ev.target)){ el.style.display='none'; }
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', function(){
+    // Replace separate Download/Upload with a single config button + mini menu
+    safe(function configSingleButton(){
+      const group = document.getElementById('settingsGroup');
+      if(!group) return;
+
+      // Remove old buttons if present
+      const oldDl = document.getElementById('downloadBtn'); if(oldDl) oldDl.remove();
+      const oldUl = document.getElementById('uploadBtn'); if(oldUl) oldUl.remove();
+
+      // Add single button
+      let cfg = document.getElementById('configBtn');
+      if(!cfg){
+        cfg = document.createElement('button');
+        cfg.id='configBtn'; cfg.className='icon-btn'; cfg.title='Export / Import configuration'; cfg.textContent='📦';
+        group.appendChild(cfg);
+      }
+      // Hidden file input
+      let fi = document.getElementById('configFileInput');
+      if(!fi){
+        fi = document.createElement('input');
+        fi.type='file'; fi.accept='.json,application/json'; fi.id='configFileInput'; fi.style.display='none';
+        group.appendChild(fi);
+      }
+      // Mini menu
+      let menu = document.getElementById('configDrop');
+      if(!menu){
+        menu = document.createElement('div');
+        menu.id='configDrop';
+        menu.innerHTML = `
+          <button class="chip" id="chipDownload">⬇️ Download configuration</button>
+          <button class="chip" id="chipUpload">⬆️ Upload configuration</button>
+        `;
+        group.appendChild(menu);
+      }
+
+      function exportAllLocalStorage(){
+        const dump = {};
+        for(let i=0;i<localStorage.length;i++){
+          const k = localStorage.key(i);
+          dump[k] = localStorage.getItem(k);
+        }
+        const payload = { version: 2, exportedAt: new Date().toISOString(), storage: dump };
+        const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download='ramify_config.json'; document.body.appendChild(a); a.click();
+        setTimeout(()=>{ a.remove(); URL.revokeObjectURL(url); }, 0);
+      }
+      function importAllLocalStorage(file){
+        const reader = new FileReader();
+        reader.onload = (ev)=>{
+          try{
+            const data = JSON.parse(String(ev.target.result||'{}'));
+            if(!data || typeof data!=='object') throw new Error('Invalid file');
+            const store = data.storage || data.state || {};
+            const entries = store.storage ? store.storage : store;
+            let wrote = 0;
+            for(const [k,v] of Object.entries(entries)){
+              try{ localStorage.setItem(k, typeof v==='string'? v : JSON.stringify(v)); wrote++; }catch{}
+            }
+            alert(`Imported ${wrote} keys. Reloading…`);
+            location.reload();
+          }catch(err){
+            console.error(err); alert('Import failed: ' + err.message);
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      cfg.onclick = function(e){
+        e.stopPropagation();
+        menu.style.display = (menu.style.display==='block') ? 'none' : 'block';
+      };
+      const chipDl = document.getElementById('chipDownload');
+      const chipUl = document.getElementById('chipUpload');
+      chipDl.onclick = function(e){ e.stopPropagation(); exportAllLocalStorage(); menu.style.display='none'; };
+      chipUl.onclick = function(e){ e.stopPropagation(); fi.click(); };
+      fi.onchange = function(e){
+        const file = e.target.files && e.target.files[0];
+        if(file) importAllLocalStorage(file);
+        fi.value='';
+        menu.style.display='none';
+      };
+    });
+
+    // Ensure settings dropdown is shifted left (in case earlier patch set right)
+    safe(function alignSettingsLeft(){
+      const dd = document.getElementById('settingsDrop');
+      if(dd){ dd.style.right='auto'; dd.style.left='-320px'; }
+    });
+
+    // Make sure task cards have up/down arrows from the To Do list render
+    safe(function reinforceTaskArrows(){
+      if(!window.App) return;
+      // If a previous patch added moveTask, keep it; else add
+      if(typeof App.moveTask !== 'function'){
+        App.moveTask = function(id, dir){
+          const i = App.state.tasks.findIndex(x=> x.id===id); if(i<0) return;
+          const j = i + dir; if(j<0 || j>=App.state.tasks.length) return;
+          const tmp = App.state.tasks[i]; App.state.tasks[i] = App.state.tasks[j]; App.state.tasks[j] = tmp;
+          Storage.set('tasks', App.state.tasks);
+          App.renderTasks();
+        };
+      }
+      const orig = App.renderTasks.bind(App);
+      App.renderTasks = function(){
+        orig();
+        const body = document.getElementById('tasksBody'); if(!body) return;
+        Array.from(body.querySelectorAll('.task-card')).forEach(card=>{
+          if(card.dataset.enhanced === '1') return;
+          const actions = card.querySelector('.task-actions');
+          if(actions){
+            const up = document.createElement('button'); up.className='chip-btn'; up.title='Move up'; up.textContent='⬆';
+            const dn = document.createElement('button'); dn.className='chip-btn'; dn.title='Move down'; dn.textContent='⬇';
+            actions.insertBefore(dn, actions.firstChild);
+            actions.insertBefore(up, actions.firstChild);
+            up.onclick = ()=> App.moveTask(card.id, -1);
+            dn.onclick = ()=> App.moveTask(card.id, 1);
+          }
+          card.dataset.enhanced = '1';
+        });
+      };
+      // Apply now
+      try{ App.renderTasks(); }catch{}
+    });
+  });
+})();</script><style>.mini-menu{max-height:min(60vh,480px);overflow:auto}</style><script>(function(){
+  // --- Modern palette & mapping ---
+  const THEME_DEFAULT = 'var(--card)';
+  const COLOR_GRADIENTS = {
+    "Default": null, // resolve to theme
+    "Red": "linear-gradient(135deg, #ef4444, #dc2626)",
+    "Green": "linear-gradient(135deg, #22c55e, #16a34a)",
+    "Blue": "linear-gradient(135deg, #3b82f6, #2563eb)",
+    "Yellow": "linear-gradient(135deg, #facc15, #eab308)",
+    "Pink": "linear-gradient(135deg, #ec4899, #db2777)",
+    "Lavender": "linear-gradient(135deg, #a78bfa, #8b5cf6)",
+    "Teal": "linear-gradient(135deg, #14b8a6, #0d9488)",
+    "Orange": "linear-gradient(135deg, #fb923c, #f97316)",
+    // IMPORTANT: Gray now equals the original theme background (like your old default)
+    "Gray": null,
+    "White": "linear-gradient(135deg, #f9fafb, #e5e7eb)"
+  };
+
+  window.App = window.App || {};
+  const Storage = window.Storage || { set:(k,v)=>localStorage.setItem(k, JSON.stringify(v)),
+    get:(k,f)=>{ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):f; } catch(e){ return f; } }
+  };
+
+  // Map cards to IDs if not already present (prevents "can't find card" bugs)
+  function reconcileCardIds(){
+    try {
+      const allCards = document.querySelectorAll('.card[id^="card-"]');
+      if(allCards.length>0) return; // assume IDs already set by renderer
+      // Best-effort: try to assign by reading data-id attributes if present
+      document.querySelectorAll('.card').forEach(card => {
+        if(!card.id){
+          const sid = card.getAttribute('data-id');
+          if(sid) card.id = 'card-'+sid;
+        }
+      });
+    } catch(e){}
+  }
+
+  // Apply visual style immediately with strong override
+  function applyShortcutStyle(card, colorName){
+    if(!card) return;
+    const name = (colorName || 'Default');
+    const grad = COLOR_GRADIENTS[name];
+    if(grad){
+      card.style.setProperty('background', grad, 'important');
+    } else {
+      // Default + Gray route here
+      card.style.setProperty('background', THEME_DEFAULT, 'important');
+    }
+    // Contrast
+    const lc = name.toLowerCase();
+    card.style.color = (lc === 'white' || lc === 'yellow') ? '#0b1220' : 'white';
+    // Gentle transition
+    card.style.transition = 'background 160ms ease, color 160ms ease';
+  }
+
+  // Override change handler to be robust and idempotent
+  App.changeShortcutColor = function(id, name){
+    try {
+      const numeric = Number(id);
+      // Update state
+      const st = (App.state && App.state.shortcuts) || Storage.get('shortcuts', []);
+      for(const bucket of st){
+        const s = (bucket.shortcuts||[]).find(x=>x.id===numeric);
+        if(s){ s.colorName = name; break; }
+      }
+      if(App.state) App.state.shortcuts = st;
+      Storage.set('shortcuts', st);
+
+      // Update DOM immediately
+      reconcileCardIds();
+      const card = document.getElementById('card-'+numeric);
+      applyShortcutStyle(card, name);
+    }catch(e){ console.error(e); }
+  };
+
+  // Delegate select changes (covers inline + dynamic rows)
+  document.addEventListener('change', function(e){
+    if(e.target && e.target.matches('#shortcutList select.small-select')){
+      const row = e.target.closest('[id^="row-"]');
+      if(row){
+        const id = row.id.replace('row-','');
+        App.changeShortcutColor(id, e.target.value);
+      }
+    }
+  }, true);
+
+  // Ensure "Default" option exists and Gray label is clarified (optional)
+  function ensureOptions(){
+    document.querySelectorAll('#shortcutList select.small-select').forEach(sel=>{
+      // Insert Default at top if missing
+      if(!Array.from(sel.options).some(o=>o.value==='Default')){
+        const opt = document.createElement('option');
+        opt.value = 'Default';
+        opt.textContent = 'Default';
+        sel.insertBefore(opt, sel.firstChild);
+      }
+      // If Gray exists, keep it; it now maps to THEME_DEFAULT via logic above
+    });
+  }
+
+  // Apply on load
+  window.addEventListener('DOMContentLoaded', function(){
+    ensureOptions();
+    const st = (App.state && App.state.shortcuts) || Storage.get('shortcuts', []);
+    for(const bucket of st){
+      for(const s of (bucket.shortcuts||[])){
+        const card = document.getElementById('card-'+s.id);
+        if(card) applyShortcutStyle(card, s.colorName || 'Default');
+      }
+    }
+  });
+
+  // --- Popup positioning fix for heading action menus ---
+  // Re-implement toggleHeadingActions to use FIXED positioning near the button
+  const safeClamp = (v, min, max)=> Math.max(min, Math.min(max, v));
+
+  App.toggleHeadingActions = function(ev, name, forceClose=false){
+    try{
+      const id = `ha-${name}`;
+      const menu = document.getElementById(id);
+      if(!menu) return;
+      // Hide all other menus
+      document.querySelectorAll('.mini-menu').forEach(m=> m.style.display='none');
+
+      if(forceClose){ menu.style.display='none'; return; }
+
+      // Compute position anchored to the triggering button
+      const btn = ev && ev.currentTarget ? ev.currentTarget : ev && ev.target ? ev.target : null;
+      let rect = btn ? btn.getBoundingClientRect() : {left:12, right:12, bottom:56, top:40, width:0, height:0};
+      // Show temporarily to measure width/height
+      menu.style.display = 'block';
+      menu.style.position = 'fixed';
+      menu.style.zIndex = 10050;
+      const mw = menu.offsetWidth || 240;
+      const mh = menu.offsetHeight || 200;
+
+      // Place below the button with 8px gap; flip if near bottom
+      let top = rect.bottom + 8;
+      if (top + mh > window.innerHeight - 8) {
+        top = rect.top - mh - 8;
+      }
+      top = safeClamp(top, 8, Math.max(8, window.innerHeight - mh - 8));
+      let left = safeClamp(rect.left, 8, Math.max(8, window.innerWidth - mw - 8));
+
+      menu.style.top = `${top}px`;
+      menu.style.left = `${left}px`;
+
+      // Click-away & scroll/resize to close
+      const close = (e)=>{
+        if(!menu.contains(e.target)) { menu.style.display='none'; cleanup(); }
+      };
+      const onEsc = (e)=>{ if(e.key==='Escape'){ menu.style.display='none'; cleanup(); } };
+      const onResize = ()=>{ menu.style.display='none'; cleanup(); };
+      function cleanup(){
+        window.removeEventListener('scroll', onResize, true);
+        window.removeEventListener('resize', onResize, true);
+        document.removeEventListener('mousedown', close, true);
+        document.removeEventListener('keydown', onEsc, true);
+      }
+      window.addEventListener('scroll', onResize, true);
+      window.addEventListener('resize', onResize, true);
+      document.addEventListener('mousedown', close, true);
+      document.addEventListener('keydown', onEsc, true);
+      if(ev && ev.stopPropagation) ev.stopPropagation();
+    }catch(e){ console.error('toggleHeadingActions fix failed', e); }
+  };
+})();</script><script id=ramify-fixes-0818-js>(function(){
+  // 1) Only close Shortcuts via its own button
+  window.hideAllDropdowns = function(){
+    // Close all other top dropdowns
+    ['themeDrop','timeDrop','calendarDrop','weatherDrop','navDrop','internetDrop'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.style.display = 'none';
+    });
+    // Close mini-menus in headings
+    document.querySelectorAll('.mini-menu').forEach(m=> m.style.display='none');
+  };
+
+  // 2) Respect the rule above inside the toggler
+  window.toggleDropdown = function(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    const open = (el.style.display === 'block');
+    if(id === 'shortcutsDrop'){
+      el.style.display = open ? 'none' : 'block';
+    } else {
+      hideAllDropdowns();
+      el.style.display = open ? 'none' : 'block';
+    }
+  };
+
+  // 3) Ensure every color <select> has a 'Default' option and select it by default if none chosen
+  function ensureDefaultOption(){
+    const host = document.getElementById('shortcutList');
+    if(!host) return;
+    host.querySelectorAll('select.small-select').forEach(sel=>{
+      const hasDefault = Array.from(sel.options).some(o=>o.value==='Default');
+      if(!hasDefault){
+        const opt = document.createElement('option');
+        opt.value = 'Default';
+        opt.textContent = 'Default';
+        sel.insertBefore(opt, sel.firstChild);
+      }
+      // select Default if nothing selected
+      if(!Array.from(sel.options).some(o=>o.selected)){
+        const opt = Array.from(sel.options).find(o=>o.value==='Default');
+        if(opt) opt.selected = true;
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', ensureDefaultOption);
+  const mo = new MutationObserver(ensureDefaultOption);
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const host = document.getElementById('shortcutList');
+    if(host) mo.observe(host, { childList:true, subtree:true });
+  });
+
+  // 4) When changing to 'Default', clear the explicit color so card falls back to theme
+  if(window.App && App.changeShortcutColor){
+    const origChange = App.changeShortcutColor.bind(App);
+    App.changeShortcutColor = function(id, name){
+      if(name === 'Default'){ name = ''; }
+      return origChange(id, name);
+    };
+  }
+
+  // 5) Enforce 'Default' for new shortcuts if none is set (and normalize old 'Gray')
+  if(window.App && App.addShortcut){
+    const origAdd = App.addShortcut.bind(App);
+    App.addShortcut = function(){
+      const result = origAdd();
+      try{
+        // find most recently added item and normalize its color
+        let latest = null;
+        (App.state.shortcuts||[]).forEach(bucket=>{
+          (bucket.shortcuts||[]).forEach(it=>{ if(!latest || (it.id>latest.id)) latest = it; });
+        });
+        if(latest){
+          if(!latest.colorName || latest.colorName==='Gray'){ latest.colorName = 'Default'; }
+          // persist and re-render to reflect default
+          if(window.Storage && Storage.set){
+            Storage.set('shortcuts', App.state.shortcuts);
+          }
+          if(App.renderAll) App.renderAll();
+        }
+      }catch(e){ console.warn('Color normalize error', e); }
+      return result;
+    };
+  }
+})();</script><script id=ramify-only-hamburger-close>(function(){
+  function isOpen(){
+    const el = document.getElementById('shortcutsDrop');
+    if(!el) return false;
+    const st = window.getComputedStyle(el);
+    return (st && st.display === 'block');
+  }
+  function isHamburger(el){
+    const hb = document.getElementById('hamburger');
+    return !!hb && (el===hb || (el && hb.contains(el)));
+  }
+  function guardPointer(e){
+    if(!isOpen()) return;
+    const popup = document.getElementById('shortcutsDrop');
+    if(!popup) return;
+    const t = e.target;
+    // Only allow closing via hamburger; block outside interactions from reaching closers
+    if(!popup.contains(t) && !isHamburger(t)){
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    }
+  }
+  // Block global closers while Shortcuts is open
+  ['mousedown','mouseup','click'].forEach(type=>{
+    document.addEventListener(type, guardPointer, true);
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(!isOpen()) return;
+    if(e.key === 'Escape' || e.key === 'Esc'){
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    }
+  }, true);
+})();</script><script id=ramify-hotfix-0819 data-author=CyberRam data-purpose="default grey persist + stricter task arrows + background fit controls"data-version=v2>(function(){
+  const Storage = {
+    get(k,f){ try{const v=localStorage.getItem(k); return v?JSON.parse(v):(f??null);}catch(_){return f??null}},
+    set(k,v){ localStorage.setItem(k, JSON.stringify(v)); },
+    del(k){ localStorage.removeItem(k); }
+  };
+
+  function onReady(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+  // --- Utilities ---
+  function walkShortcuts(cb){
+    const blocks = Storage.get('shortcuts', []) || [];
+    blocks.forEach(b => (b.shortcuts||[]).forEach(cb));
+    return blocks;
+  }
+
+  function persistShortcuts(blocks){
+    Storage.set('shortcuts', blocks);
+    if(window.App && App.renderAll) App.renderAll();
+  }
+
+  function normalizeShortcutColors(){
+    const blocks = Storage.get('shortcuts', []) || [];
+    let changed=false;
+    blocks.forEach(b => (b.shortcuts||[]).forEach(s=>{
+      const val = (s.colorName||'').toString();
+      if(!val || /^teal$/i.test(val)){
+        s.colorName = 'Gray';
+        changed=true;
+      }
+    }));
+    if(changed) persistShortcuts(blocks);
+  }
+
+  // Background helpers
+  function applyWallpaperData(){
+    const data = localStorage.getItem('wallpaperData');
+    const fit = localStorage.getItem('wallpaperFit') || 'cover'; // 'cover' | 'contain' | 'fill'
+    const pos = localStorage.getItem('wallpaperPos') || 'center'; // 'center' | 'top' | 'bottom'
+    const shade = Number(localStorage.getItem('wallpaperShade') || '35'); // 0..80
+
+    if(data){
+      document.body.style.backgroundImage = `url('${data}')`;
+      document.body.style.backgroundRepeat='no-repeat';
+      document.body.style.backgroundSize = (fit==='fill' ? '100% 100%' : fit);
+      document.body.style.backgroundPosition = pos;
+      document.body.style.backgroundAttachment='fixed';
+
+      let overlay = document.getElementById('bgOverlayShade');
+      if(!overlay){
+        overlay = document.createElement('div');
+        overlay.id = 'bgOverlayShade';
+        overlay.style.position='fixed';
+        overlay.style.inset='0';
+        overlay.style.pointerEvents='none';
+        overlay.style.zIndex='0';
+        document.body.appendChild(overlay);
+      }
+      overlay.style.background = `linear-gradient(180deg, rgba(0,0,0,${shade/100}), rgba(0,0,0,${shade/100}))`;
+    } else {
+      document.body.style.backgroundImage = 'none';
+      const overlay = document.getElementById('bgOverlayShade');
+      if(overlay) overlay.remove();
+    }
+  }
+
+  onReady(function(){
+    // ===== 1) Preconfigured look stays same as v1 (only if empty) =====
+    try{
+      if(window.App){
+        const iex = Storage.get('iex', {visible:true, engine:'brave', style:'pinkblue'});
+        if(iex.visible !== true){ iex.visible = true; Storage.set('iex', iex); }
+        App.state = App.state || {};
+        App.state.iex = iex;
+      }
+      const hasHeadings = (Storage.get('headings',[])||[]).length>0;
+      if(!hasHeadings){
+        const seedHeading = ['Main'];
+        const seedShortcuts = [{ heading:'Main', shortcuts:[{
+          id: Date.now(),
+          name: 'Getting Started',
+          url: 'https://example.com/',
+          colorName: 'Gray'
+        }]}];
+        Storage.set('headings', seedHeading);
+        Storage.set('shortcuts', seedShortcuts);
+        if(window.App){
+          App.state.headings = seedHeading;
+          App.state.shortcuts = seedShortcuts;
+        }
+      }
+    }catch(e){ console.warn('[v2 preconfig]', e); }
+
+    // ===== 2) Persist default GREY for new + existing shortcuts (survives refresh) =====
+    try{
+      normalizeShortcutColors();
+      if(window.App && App.addShortcut){
+        const orig = App.addShortcut.bind(App);
+        App.addShortcut = function(){
+          const res = orig();
+          try{
+            // Ensure newest + any missing are grey
+            normalizeShortcutColors();
+          }catch(err){ console.warn('[v2 default grey]', err); }
+          return res;
+        };
+      }
+    }catch(e){ console.warn('[v2 color persist]', e); }
+
+    // ===== 3) Calendar toggle (same as v1, preserved) =====
+    try{
+      const menu = document.getElementById('calendarDrop');
+      if(menu && !document.getElementById('calToggleBtn')){
+        let row = document.createElement('div');
+        row.className = 'row';
+        row.style.marginTop = '8px';
+        const btn = document.createElement('button');
+        btn.className = 'chip-btn';
+        btn.id = 'calToggleBtn';
+        btn.style.width = '100%';
+        btn.textContent = (Storage.get('calendarSettings',{})?.visible ? 'Turn Calendar Off' : 'Turn Calendar On');
+        btn.onclick = function(){
+          if(!window.App) return;
+          const cs = Storage.get('calendarSettings', App.state?.cal || {});
+          if(!cs.url){
+            const warn = document.getElementById('calWarn');
+            if(warn){ warn.textContent='Add a Calendar embed URL first, then use On/Off.'; warn.classList.remove('hidden'); }
+            return;
+          }
+          if(cs.visible){ App.closeCalendar(); }
+          else { App.openCalendar(); }
+          const next = Storage.get('calendarSettings', App.state?.cal || {});
+          btn.textContent = next.visible ? 'Turn Calendar Off' : 'Turn Calendar On';
+        };
+        row.appendChild(btn);
+        menu.appendChild(row);
+      }
+    }catch(e){ console.warn('[v2 calendar toggle]', e); }
+
+    // ===== 4) Reminders X clickable (same as v1) =====
+    try{
+      if(window.App){
+        const origShow = App.showToast?.bind(App);
+        const origHide = App.hideToast?.bind(App);
+        const t = document.getElementById('remToast');
+        if(t){
+          t.style.pointerEvents = 'none';
+          App.showToast = function(text, emoji){
+            if(origShow) origShow(text, emoji);
+            t.style.pointerEvents = 'auto';
+          };
+          App.hideToast = function(){
+            if(origHide) origHide();
+            setTimeout(()=>{ t.style.pointerEvents = 'none'; }, 200);
+          };
+        }
+      }
+    }catch(e){ console.warn('[v2 reminders x]', e); }
+
+    // ===== 5) Task arrows: enforce exactly one up + one down, remove duplicate action bars =====
+    try{
+      function fixTaskArrows(scope=document){
+        scope.querySelectorAll('.task-card').forEach(card=>{
+          const bars = Array.from(card.querySelectorAll('.task-actions'));
+          // Keep only the first actions bar if multiples exist
+          bars.slice(1).forEach(el=>el.remove());
+
+          const actions = bars[0] || card.querySelector('.task-actions');
+          if(!actions) return;
+
+          // Collect candidate buttons by text (support ⬆/⬇ and ▲/▼)
+          const btns = Array.from(actions.querySelectorAll('button.chip-btn,button'));
+          const isUp = b => /^(⬆|▲|up)/i.test((b.textContent||'').trim());
+          const isDown = b => /^(⬇|▼|down)/i.test((b.textContent||'').trim());
+
+          let upBtn=null, downBtn=null;
+          btns.forEach(b=>{
+            if(isUp(b)){ if(!upBtn) upBtn=b; else b.remove(); }
+            else if(isDown(b)){ if(!downBtn) downBtn=b; else b.remove(); }
+          });
+
+          // If missing, add them
+          if(!upBtn){
+            upBtn = document.createElement('button');
+            upBtn.className='chip-btn';
+            upBtn.textContent='⬆';
+            actions.appendChild(upBtn);
+          }
+          if(!downBtn){
+            downBtn = document.createElement('button');
+            downBtn.className='chip-btn';
+            downBtn.textContent='⬇';
+            actions.appendChild(downBtn);
+          }
+        });
+      }
+
+      if(window.App){
+        const origRenderTasks = App.renderTasks?.bind(App);
+        App.renderTasks = function(){
+          const r = origRenderTasks ? origRenderTasks() : undefined;
+          fixTaskArrows();
+          return r;
+        };
+      }
+      // run once after load
+      setTimeout(()=>fixTaskArrows(), 0);
+    }catch(e){ console.warn('[v2 task arrows]', e); }
+
+    // ===== 6) Background upload: add Fit/Position/Shade controls and persist =====
+    try{
+      const themeDrop = document.getElementById('themeDrop');
+      if(themeDrop && !document.getElementById('bgFitSelect')){
+        const h = document.createElement('h3'); h.textContent = 'Upload Background';
+        h.style.marginTop = '12px';
+        const row = document.createElement('div'); row.className = 'row';
+        const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.id='bgUpload';
+        const setBtn = document.createElement('button'); setBtn.className='chip-btn'; setBtn.textContent='Use';
+        const clrBtn = document.createElement('button'); clrBtn.className='chip-btn'; clrBtn.textContent='Clear';
+
+        const fitRow = document.createElement('div'); fitRow.className='row'; fitRow.style.marginTop='8px';
+        const fitSel = document.createElement('select'); fitSel.id='bgFitSelect';
+        ['cover','contain','fill'].forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent='Fit: '+v; fitSel.appendChild(o); });
+        fitSel.value = localStorage.getItem('wallpaperFit') || 'cover';
+
+        const posSel = document.createElement('select'); posSel.id='bgPosSelect'; posSel.style.marginLeft='8px';
+        [['center','Position: center'],['top','Position: top'],['bottom','Position: bottom']].forEach(([v,t])=>{ const o=document.createElement('option'); o.value=v; o.textContent=t; posSel.appendChild(o); });
+        posSel.value = localStorage.getItem('wallpaperPos') || 'center';
+
+        const shadeSel = document.createElement('input'); shadeSel.type='range'; shadeSel.min='0'; shadeSel.max='80'; shadeSel.step='5';
+        shadeSel.id='bgShadeRange'; shadeSel.style.marginLeft='8px'; shadeSel.title='Darken overlay';
+        shadeSel.value = localStorage.getItem('wallpaperShade') || '35';
+
+        row.appendChild(inp); row.appendChild(setBtn); row.appendChild(clrBtn);
+        fitRow.appendChild(fitSel); fitRow.appendChild(posSel); fitRow.appendChild(shadeSel);
+        themeDrop.appendChild(h); themeDrop.appendChild(row); themeDrop.appendChild(fitRow);
+
+        if(window.App){
+          const origApplyTheme = App.applyTheme?.bind(App);
+          App.applyTheme = function(){
+            const r = origApplyTheme ? origApplyTheme() : undefined;
+            applyWallpaperData();
+            return r;
+          };
+        }
+
+        setBtn.onclick = async function(){
+          const f = inp.files && inp.files[0];
+          if(!f) return;
+          const reader = new FileReader();
+          reader.onload = function(e){
+            try{
+              localStorage.setItem('wallpaperData', e.target.result);
+              applyWallpaperData();
+            }catch(err){ console.warn('[v2 bg save]', err); }
+          };
+          reader.readAsDataURL(f);
+        };
+        clrBtn.onclick = function(){
+          localStorage.removeItem('wallpaperData');
+          applyWallpaperData();
+        };
+        fitSel.onchange = function(){ localStorage.setItem('wallpaperFit', fitSel.value); applyWallpaperData(); };
+        posSel.onchange = function(){ localStorage.setItem('wallpaperPos', posSel.value); applyWallpaperData(); };
+        shadeSel.oninput = function(){ localStorage.setItem('wallpaperShade', String(shadeSel.value)); applyWallpaperData(); };
+
+        // Apply if exists
+        applyWallpaperData();
+      } else {
+        // still apply if data exists, even if UI not present
+        applyWallpaperData();
+      }
+    }catch(e){ console.warn('[v2 bg controls]', e); }
+
+    // ===== 7) Make sure search bar is visible immediately on boot =====
+    try{
+      if(window.App){
+        if(App.state?.iex?.visible){ App.showIEX?.(); }
+      }
+    }catch(e){ console.warn('[v2 show iex]', e); }
+  });
+})();</script><script id=ramify-0820-fix2>(function(){
+  const $ = (s, r=document)=>r.querySelector(s);
+  const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+
+  function removeOldPatches(){
+    const old = document.getElementById('ramify-0820-topbar-and-dropdown');
+    if(old) old.remove();
+    const oldScript = document.getElementById('ramify-0820-script');
+    if(oldScript) oldScript.remove();
+  }
+
+  // Smaller, consistent top bar – only override if our previous bump existed
+  function normalizeTopbar(){
+    const style = document.createElement('style');
+    style.id = 'ramify-0820-fix2-css';
+    style.textContent = `
+      /* Keep the original sizing; just ensure nothing is artificially enlarged */
+      .menu { padding: 8px; gap: 8px; }
+      .icon-btn, .chip-btn { height: 38px; min-width: 38px; font-size: 14px; }
+      /* Ensure dropdowns aren't pushed too low */
+      #shortcutsDrop, #themeDrop, #timeDrop, #calendarDrop, #weatherDrop, #navDrop, #internetDrop, #settingsDrop, #configDrop {
+        top: 64px !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Move Settings/Config to FAR RIGHT
+  function moveSettingsToRight(){
+    // Some builds create settings controls via mountSettings()
+    if (typeof window.mountSettings === 'function'){
+      try { window.mountSettings(); } catch {}
+    }
+    const menu = $('#topMenu');
+    if(!menu) return;
+    let group = $('#settingsGroup');
+    if(!group){
+      // If not present, build a minimal group compatible with the existing code
+      group = document.createElement('span');
+      group.id = 'settingsGroup';
+      group.style.display = 'inline-flex';
+      group.style.alignItems = 'center';
+      group.style.gap = '8px';
+      // settings button
+      const btn = document.createElement('button');
+      btn.className = 'icon-btn'; btn.id='openSettings'; btn.title='Settings'; btn.textContent='⚙️';
+      group.appendChild(btn);
+      // download/upload buttons
+      const dl = document.createElement('button');
+      dl.className='icon-btn'; dl.id='downloadBtn'; dl.title='Download configuration'; dl.textContent='⬇️';
+      const ul = document.createElement('button');
+      ul.className='icon-btn'; ul.id='uploadBtn'; ul.title='Upload configuration'; ul.textContent='⬆️';
+      const fi = document.createElement('input');
+      fi.type='file'; fi.accept='application/json'; fi.id='configFileInput'; fi.style.display='none';
+      group.append(dl, ul, fi);
+      // settings dropdown shell
+      const dd = document.createElement('div');
+      dd.id='settingsDrop'; dd.className='dropdown settings';
+      dd.innerHTML = '<h3>Settings</h3><div class="row muted">Choose a section above.</div>';
+      group.appendChild(dd);
+    }
+    // Append to the VERY END so it sits on the far right
+    menu.appendChild(group);
+
+    // Align dropdowns when docked on the right edge
+    const css = document.createElement('style');
+    css.textContent = `
+      #settingsDrop.dropdown.settings{ left: auto !important; right: 0 !important; max-width: 420px; }
+      #configDrop{ left: auto !important; right: 0 !important; }
+    `;
+    document.head.appendChild(css);
+  }
+
+  // Clock UI: add style + icon controls BEFORE On/Off; use ::before so we never fight the app's text updates
+  function installClockStyleUI(){
+    const drop = $('#timeDrop');
+    if(!drop || $('#clockStyleRow')) return;
+    const column = drop.querySelector('.row');
+    if(!column) return;
+
+    const row = document.createElement('div');
+    row.id = 'clockStyleRow';
+    row.style.display='grid'; row.style.gap='6px'; row.style.marginBottom='8px';
+    row.innerHTML = `
+      <select id="clockStyle" class="small-select" title="Clock style">
+        <option value="plain">Plain</option>
+        <option value="pill">Pill</option>
+        <option value="glow">Glow</option>
+      </select>
+      <select id="clockIcon" class="small-select" title="Symbol next to clock">
+        <option value="">No symbol</option>
+        <option value="✝️">✝️</option>
+        <option value="🏄">🏄</option>
+        <option value="👽">👽</option>
+        <option value="⭐">⭐</option>
+        <option value="🔥">🔥</option>
+      </select>
+    `;
+    // insert BEFORE the On/Off button (which is last in this column)
+    column.insertBefore(row, column.lastElementChild);
+
+    const iconSel = $('#clockIcon');
+    const styleSel = $('#clockStyle');
+    iconSel.value = localStorage.getItem('clockIcon') || '';
+    styleSel.value = localStorage.getItem('clockStyle') || 'plain';
+
+    iconSel.onchange = (e)=>{ localStorage.setItem('clockIcon', e.target.value); applyClockSkin(); };
+    styleSel.onchange = (e)=>{ localStorage.setItem('clockStyle', e.target.value); applyClockSkin(); };
+
+    // CSS that renders the icon without touching inner text
+    const css = document.createElement('style');
+    css.id = 'clock-skin-css';
+    css.textContent = `
+      #timeDisplay::before { content: attr(data-icon) " "; }
+      #timeDisplay.clock-pill{ padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); }
+      #timeDisplay.clock-glow{ text-shadow: 0 0 14px rgba(125,211,252,.65); }
+    `;
+    document.head.appendChild(css);
+
+    applyClockSkin();
+  }
+
+  function applyClockSkin(){
+    const el = document.getElementById('timeDisplay');
+    if(!el) return;
+    const icon = localStorage.getItem('clockIcon') || '';
+    const style = localStorage.getItem('clockStyle') || 'plain';
+    el.dataset.icon = icon;
+    el.classList.remove('clock-pill','clock-glow');
+    if(style === 'pill') el.classList.add('clock-pill');
+    if(style === 'glow') el.classList.add('clock-glow');
+  }
+
+  // Dedupe up/down arrows across Tasks & Shortcuts; handle future DOM changes via MutationObserver
+  function dedupeArrows(root){
+    const scopes = [];
+    const tasksBody = $('#tasksBody');
+    if(tasksBody) scopes.push(tasksBody);
+    const scDrop = $('#shortcutsDrop');
+    if(scDrop) scopes.push(scDrop);
+
+    const UP_RX = /\bMove up\b|⬆/i;
+    const DOWN_RX = /\bMove down\b|⬇/i;
+
+    scopes.forEach(scope=>{
+      // action containers
+      const containers = $$(['.task-actions','.actions','.row'].join(','), scope);
+      containers.forEach(c=>{
+        // only consider if contains at least one up/down
+        const btns = $$('button', c);
+        if(!btns.length) return;
+        const ups=[]; const downs=[];
+        btns.forEach(b=>{
+          const t = ((b.title||'') + ' ' + (b.textContent||'')).trim();
+          if(UP_RX.test(t)) ups.push(b);
+          if(DOWN_RX.test(t)) downs.push(b);
+        });
+        if(ups.length>1){ ups.slice(1).forEach(b=>b.remove()); }
+        if(downs.length>1){ downs.slice(1).forEach(b=>b.remove()); }
+      });
+    });
+  }
+
+  let dedupeTimer=null;
+  function scheduleDedupe(){
+    clearTimeout(dedupeTimer);
+    dedupeTimer = setTimeout(()=>dedupeArrows(document.body), 60);
+  }
+
+  function mountObservers(){
+    const obs = new MutationObserver(scheduleDedupe);
+    obs.observe(document.body, {childList:true, subtree:true});
+  }
+
+  function boot(){
+    removeOldPatches();
+    normalizeTopbar();
+    moveSettingsToRight();
+    installClockStyleUI();
+    scheduleDedupe();
+    mountObservers();
+    // also apply skin once per second just in case app fully re-renders the clock element
+    setTimeout(()=>applyClockSkin(), 50);
+  }
+
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', boot); }
+  else { boot(); }
+})();</script><script id=ramify-v6>(function(){
+  function safe(fn){ try{ return fn(); }catch(e){ console.warn('[ramify v6]', e); } }
+
+  // ==== 1) Realtime shortcut color (robust) ====
+  function setupRealtimeShortcutColor(){
+    window.App = window.App || {};
+    const COLOR_GRADIENTS = {
+      "Default": null,
+      "Red": "linear-gradient(135deg, #ef4444, #dc2626)",
+      "Green": "linear-gradient(135deg, #22c55e, #16a34a)",
+      "Blue": "linear-gradient(135deg, #3b82f6, #2563eb)",
+      "Yellow": "linear-gradient(135deg, #facc15, #eab308)",
+      "Pink": "linear-gradient(135deg, #ec4899, #db2777)",
+      "Lavender": "linear-gradient(135deg, #a78bfa, #8b5cf6)",
+      "Teal": "linear-gradient(135deg, #14b8a6, #0d9488)",
+      "Orange": "linear-gradient(135deg, #fb923c, #f97316)",
+      "Gray": null,
+      "White": "linear-gradient(135deg, #f9fafb, #e5e7eb)"
+    };
+    function applyStyle(card, colorName){
+      if(!card) return;
+      const name = (colorName || 'Default');
+      const grad = COLOR_GRADIENTS[name];
+      if(grad){ card.style.setProperty('background', grad, 'important'); }
+      else{ card.style.setProperty('background', 'var(--card)', 'important'); }
+      const lc = (name||'').toLowerCase();
+      card.style.color = (lc==='white' || lc==='yellow') ? '#0b1220' : '#ffffff';
+      card.style.transition = 'background 180ms ease, color 180ms ease';
+    }
+    function mapCardIds(){
+      // give id="card-<id>" to any shortcut card that has data-id attribute
+      document.querySelectorAll('[data-id]').forEach(el=>{
+        const id = el.getAttribute('data-id');
+        if(id && !el.id) el.id = 'card-'+id;
+      });
+    }
+    mapCardIds();
+
+    const prev = App.changeShortcutColor ? App.changeShortcutColor.bind(App) : null;
+    App.changeShortcutColor = function(id, name){
+      try{
+        if(prev) prev(id, name);
+        // persist
+        if(App.state && App.findShortcut){
+          const loc = App.findShortcut(id);
+          if(loc){ loc.bucket.shortcuts[loc.idx].colorName = name || ''; }
+        }
+        try{ localStorage.setItem('shortcuts', JSON.stringify(App.state.shortcuts)); }catch(e){}
+        // realtime style
+        mapCardIds();
+        const card = document.getElementById('card-'+id) || document.querySelector(`[data-id="${id}"]`);
+        applyStyle(card, name);
+      }catch(e){ console.warn('realtime color failed', e); }
+    };
+
+    // Sweep once on load and on DOM changes
+    function sweep(){
+      mapCardIds();
+      if(!(App.state && App.findShortcut)) return;
+      document.querySelectorAll('[id^="card-"], [data-id]').forEach(card=>{
+        const sid = Number(card.id?.replace('card-','')) || Number(card.getAttribute('data-id'));
+        if(!sid) return;
+        const loc = App.findShortcut(sid); if(!loc) return;
+        applyStyle(card, (loc.bucket.shortcuts[loc.idx]||{}).colorName || 'Default');
+      });
+    }
+    sweep();
+    new MutationObserver(()=>sweep()).observe(document.body, {childList:true, subtree:true});
+  }
+
+  // ==== 2) Smooth task move (FLIP animation) ====
+  function setupSmoothMoves(){
+    if(!window.App) return;
+    const listSel = '.task-list, #tasksList, .tasks';
+    function flipAnimate(container){
+      if(!container) return;
+      const children = Array.from(container.children);
+      const first = new Map(children.map(el=>[el, el.getBoundingClientRect()]));
+      requestAnimationFrame(()=>{
+        const last = new Map(children.map(el=>[el, el.getBoundingClientRect()]));
+        children.forEach(el=>{
+          const a = first.get(el), b = last.get(el);
+          if(!a || !b) return;
+          const dx = a.left - b.left;
+          const dy = a.top - b.top;
+          if(dx || dy){
+            el.style.transform = `translate(${dx}px, ${dy}px)`;
+            el.style.transition = 'transform 0s';
+            requestAnimationFrame(()=>{
+              el.style.transition = 'transform 220ms ease';
+              el.style.transform = '';
+              setTimeout(()=>{ el.style.transition=''; }, 260);
+            });
+          }
+        });
+      });
+    }
+    function wrap(fn){
+      return function(...args){
+        const container = document.querySelector(listSel);
+        if(container) flipAnimate(container);
+        const r = fn.apply(this, args);
+        return r;
+      };
+    }
+    if(App.moveTaskUp) App.moveTaskUp = wrap(App.moveTaskUp);
+    if(App.moveTaskDown) App.moveTaskDown = wrap(App.moveTaskDown);
+    // also wrap renderTasks (drag/drop may reorder)
+    if(App.renderTasks){ 
+      const orig = App.renderTasks.bind(App);
+      App.renderTasks = function(){ const r = orig(); const container=document.querySelector(listSel); if(container) flipAnimate(container); return r; };
+    }
+  }
+
+  // ==== 3) Replace "Open all" with safer action ====
+  function patchOpenAll(){
+    if(!window.App) return;
+    App.openAllShortcuts = function(heading){
+      const bucket = App.state.shortcuts.find(h=>h.heading===heading);
+      if(!bucket || !bucket.shortcuts?.length) return;
+      const urls = bucket.shortcuts.map(sc=>sc.url).filter(Boolean);
+      // Try to open the first one (allowed by click gesture)
+      const first = urls[0];
+      if(first){
+        const a=document.createElement('a'); a.href=first; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
+      }
+      // Copy the rest to clipboard as a bulletproof fallback
+      const rest = urls.slice(1).join('\\n');
+      if(rest){
+        navigator.clipboard?.writeText(rest).then(()=>{
+          App.showToast?.('Opened first, copied the rest to clipboard.');
+        }).catch(()=>{
+          alert('Opened the first link. The remaining links are copied below.\\n\\n'+rest);
+        });
+      }
+    };
+  }
+
+  // ==== 4) Settings panel (legal path, contact, about) ====
+  function setupSettings(){
+    // ensure button exists
+    let btn = document.getElementById('openSettings');
+    if(!btn){
+      // add into top menu on the right
+      const top = document.getElementById('topMenu') || document.querySelector('.menu');
+      if(top){
+        btn = document.createElement('button');
+        btn.id = 'openSettings';
+        btn.className = 'chip-btn';
+        btn.textContent = 'Settings ⚙️';
+        top.appendChild(btn);
+      }
+    }
+    // panel
+    if(!document.getElementById('settingsPane')){
+      const pane = document.createElement('div');
+      pane.id = 'settingsPane';
+      pane.className = 'dropdown';
+      pane.style.right = '12px';
+      pane.innerHTML = `
+        <h3>Settings</h3>
+        <div class="row">
+          <a class="chip-btn" id="downloadLegal" href="file:///C:/Users/deanr/Desktop/Ramify/Ramify_Proprietary_Legal_Files" target="_blank">📂 Open Legal Folder</a>
+        </div>
+        <div class="row">
+          <a class="chip-btn" id="contactCreator" href="mailto:creator@example.com?subject=Ramify%20Support">✉️ Contact Creator</a>
+        </div>
+        <div class="row">
+          <button class="chip-btn" id="aboutApp">ℹ️ About</button>
+        </div>
+        <small style="display:block;color:var(--muted);margin-top:8px">Note: Opening local file paths works when running Ramify locally (file://). Browsers may block from https://.</small>
+      `;
+      document.body.appendChild(pane);
+    }
+    // open/close
+    const toggleDropdown = window.toggleDropdown || function(id){
+      const el = document.getElementById(id); if(!el) return;
+      const vis = el.style.display === 'block';
+      el.style.display = vis ? 'none' : 'block';
+    };
+    btn && (btn.onclick = (e)=>{ e.stopPropagation(); toggleDropdown('settingsPane'); });
+
+    const about = document.getElementById('aboutApp');
+    if(about){
+      about.onclick = ()=>{
+        alert('Ramify — Personal launcher.\nCopyright © 2025. All rights reserved.');
+      };
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    safe(setupRealtimeShortcutColor);
+    safe(setupSmoothMoves);
+    safe(patchOpenAll);
+    safe(setupSettings);
+  });
+})();</script><style>#chipDownload,#chipUpload,#configBtn,#downloadBtn,#uploadBtn{color:#f7fbff!important;text-shadow:0 0 10px rgba(255,255,255,.18);font-weight:800!important;letter-spacing:.2px}#settingsDrop .section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;margin-top:10px}#settingsDrop h4{margin:0 0 6px 0;font-size:1rem}#settingsDrop .row{display:flex;gap:8px;flex-wrap:wrap}#settingsDrop a{color:var(--text)!important}#settingsDrop small{color:#d8e6ff!important;opacity:.9}</style><script>(function(){
+  const safe = (fn)=>{ try{ fn(); } catch(e){ console.warn('[Ramify Fix Pack]', e); } };
+
+  function ensureSettings(){
+    // Ensure a settings button exists
+    let btn = document.getElementById('openSettings');
+    const top = document.getElementById('topMenu') || document.querySelector('.menu');
+    if(!btn && top){
+      btn = document.createElement('button');
+      btn.id = 'openSettings';
+      btn.className = 'icon-btn';
+      btn.title = 'Settings';
+      btn.textContent = '⚙️';
+      top.appendChild(btn);
+    }
+
+    // Ensure dropdown with tabs exists
+    let dd = document.getElementById('settingsDrop');
+    if(!dd){
+      dd = document.createElement('div');
+      dd.id='settingsDrop';
+      dd.className='dropdown settings';
+      dd.style.right = '12px';
+      dd.innerHTML = `
+        <h3>Settings</h3>
+        <div class="row" id="settingsTabs">
+          <button class="chip-btn" id="aboutBtn">ℹ️ About</button>
+          <button class="chip-btn" id="contactBtn">✉️ Contact Owner</button>
+          <button class="chip-btn" id="legalBtn">🛡️ Copyright / Legal</button>
+        </div>
+        <div style="height:6px"></div>
+        <div id="settingsPane" class="section"><b>Choose a section above.</b></div>`;
+      (top || document.body).appendChild(dd);
+    } else {
+      // Make sure the tabs exist; if not, inject them
+      if(!document.getElementById('settingsTabs')){
+        const tabs = document.createElement('div');
+        tabs.className = 'row';
+        tabs.id = 'settingsTabs';
+        tabs.innerHTML = `
+          <button class="chip-btn" id="aboutBtn">ℹ️ About</button>
+          <button class="chip-btn" id="contactBtn">✉️ Contact Owner</button>
+          <button class="chip-btn" id="legalBtn">🛡️ Copyright / Legal</button>`;
+        dd.insertBefore(tabs, dd.querySelector('#settingsPane') || dd.lastChild);
+      }
+      // Make sure pane exists
+      if(!document.getElementById('settingsPane')){
+        const pane = document.createElement('div');
+        pane.id='settingsPane';
+        pane.className='section';
+        pane.innerHTML = '<b>Choose a section above.</b>';
+        dd.appendChild(pane);
+      }
+    }
+
+    // Toggle behavior
+    if(btn){
+      const toggle = window.toggleDropdown || function(id){
+        const el = document.getElementById(id); if(!el) return;
+        const vis = el.style.display === 'block';
+        (document.querySelectorAll('.dropdown')||[]).forEach(e=>{ if(e!==el) e.style.display='none'; });
+        el.style.display = vis ? 'none' : 'block';
+      };
+      btn.onclick = (e)=>{ e.stopPropagation(); toggle('settingsDrop'); };
+    }
+    dd?.addEventListener('click', (e)=> e.stopPropagation());
+    document.addEventListener('click', ()=>{ if(dd) dd.style.display='none'; });
+
+    // Tab handlers
+    const pane = document.getElementById('settingsPane');
+    const about = document.getElementById('aboutBtn');
+    const contact = document.getElementById('contactBtn');
+    const legal = document.getElementById('legalBtn') || document.getElementById('ipBtn');
+
+    if(about){
+      about.onclick = function(){
+        pane.innerHTML = `
+          <div class="section">
+            <h4>About Ramify</h4>
+            <p><b>Ramify</b> organizes headings, shortcuts, and notes with local persistence.
+            Data is stored in your browser's <em>localStorage</em>; nothing is uploaded.</p>
+          </div>`;
+      };
+    }
+    if(contact){
+      contact.onclick = function(){
+        const email = localStorage.getItem('ownerEmail') || 'owner@example.com';
+        pane.innerHTML = `
+          <div class="section">
+            <h4>Contact Owner</h4>
+            <p>Email: <a href="mailto:${email}">${email}</a></p>
+            <div style="margin-top:8px">
+              <label for="ownerEmailInput" style="display:block;margin-bottom:4px">Set contact email:</label>
+              <input id="ownerEmailInput" placeholder="owner@example.com"
+                     style="width:100%;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)">
+              <button id="saveOwnerEmail" class="chip-btn" style="margin-top:8px">Save</button>
+            </div>
+            <small>Saving sets <code>ownerEmail</code> in localStorage for future use.</small>
+          </div>`;
+        const input = document.getElementById('ownerEmailInput');
+        const save = document.getElementById('saveOwnerEmail');
+        if(input){ input.value = email; }
+        if(save){
+          save.onclick = function(){
+            const v = (input?.value || '').trim();
+            if(v){ localStorage.setItem('ownerEmail', v); alert('Saved ownerEmail: '+v); }
+          };
+        }
+      };
+    }
+    if(legal){
+      legal.onclick = function(){
+        const windowsPath = "C:\\\\Users\\\\deanr\\\\Desktop\\\\Ramify\\\\Ramify_Proprietary_Legal_Files";
+        const fileUri = "file:///C:/Users/deanr/Desktop/Ramify/Ramify_Proprietary_Legal_Files";
+        pane.innerHTML = `
+          <div class="section">
+            <h4>Copyright / Legal</h4>
+            <p>© ${new Date().getFullYear()} Ramify. All rights reserved.</p>
+            <p>This software is provided for personal use. Redistribution, reverse engineering, or commercial use without written permission is prohibited.</p>
+            <div style="margin:10px 0">
+              <a class="chip-btn" href="${fileUri}" target="_blank" rel="noopener">📂 Open Legal Folder</a>
+            </div>
+            <small>Note: opens <code>${windowsPath}</code> when running locally via <code>file://</code>. Browsers block local folders from http(s).</small>
+          </div>`;
+      };
+    }
+  }
+
+  // FLIP animation around renderTasks so any reorder is smooth
+  function installTaskFLIP(){
+    if(!window.App) return;
+    if(App.__flipInstalled) return;
+    App.__flipInstalled = true;
+
+    const orig = App.renderTasks?.bind(App);
+    if(typeof orig !== 'function') return;
+
+    App.renderTasks = function(){
+      const list = document.getElementById('tasksBody');
+      // map first positions by element id
+      const first = new Map();
+      if(list){
+        Array.from(list.querySelectorAll('.task-card')).forEach(el=>{
+          first.set(el.id || el.getAttribute('data-id') || '', el.getBoundingClientRect());
+        });
+      }
+
+      // call original render
+      orig();
+
+      const list2 = document.getElementById('tasksBody');
+      if(!list2) return;
+      Array.from(list2.querySelectorAll('.task-card')).forEach(el=>{
+        const key = el.id || el.getAttribute('data-id') || '';
+        const f = first.get(key);
+        if(!f) return;
+        const l = el.getBoundingClientRect();
+        const dx = f.left - l.left;
+        const dy = f.top  - l.top;
+        if(dx || dy){
+          el.style.transform = `translate(${dx}px, ${dy}px)`;
+          el.style.transition = 'transform 0s';
+          requestAnimationFrame(()=>{
+            el.style.transition = 'transform 220ms ease';
+            el.style.transform = 'translate(0,0)';
+            el.addEventListener('transitionend', ()=>{
+              el.style.transition=''; el.style.transform='';
+            }, {once:true});
+          });
+        }
+      });
+    };
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    safe(ensureSettings);
+    safe(installTaskFLIP);
+  });
+})();</script><script>(function(){
+  // Pane helpers (global so inline onclick works)
+  window._ramifyGetPane = function(){ return document.getElementById('settingsPane'); };
+
+  window._ramifyShowAbout = function(){
+    var p=_ramifyGetPane(); if(!p) return;
+    p.innerHTML = '<div class="section"><h4>About Ramifyy</h4><p><b>Ramifyy</b> is a local-first start page that organizes shortcuts under collapsible headings. No sign-in, no backend; everything stays in your browser’s <em>localStorage</em>.</p><ul style="margin:6px 0 0 18px;line-height:1.5"><li>Collapsible headings with state persistence</li><li>Color tags and quick edit/delete for shortcuts</li><li>Notes & reminders, config import/export for backup</li></ul></div>';
+  };
+
+  window._ramifyShowContact = function(){
+    var p=_ramifyGetPane(); if(!p) return;
+    var email = localStorage.getItem('ownerEmail') || '';
+    p.innerHTML = '<div class="section"><h4>Contact Owner</h4>' + 
+      (email ? '<p><b>Email:</b> <a href=\"mailto:'+email+'\">'+email+'</a></p>' : '<p><b>No email set.</b> Enter one below.</p>') +
+      '<div style=\"margin-top:8px\"><label for=\"ownerEmailInput\" style=\"display:block;margin-bottom:4px\">Owner email:</label>'+
+      '<input id=\"ownerEmailInput\" placeholder=\"name@example.com\" style=\"width:100%;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)\">'+
+      '<button id=\"saveOwnerEmail\" class=\"chip-btn\" style=\"margin-top:8px\">Save</button></div>'+
+      '<small>Stored as <code>ownerEmail</code> in localStorage.</small></div>';
+    var input = document.getElementById('ownerEmailInput');
+    var save = document.getElementById('saveOwnerEmail');
+    if(input) input.value = email;
+    if(save){
+      save.onclick = function(){
+        var v=(input && input.value || '').trim();
+        if(v){ localStorage.setItem('ownerEmail', v); _ramifyShowContact(); } else { alert('Please enter an email address.'); }
+      };
+    }
+  };
+
+  window._ramifyDownloadLegal = function(){
+    // Preferred: ZIP sits next to HTML
+    var relativeZip = './Ramify_Proprietary_Legal_Files.zip';
+    var a = document.createElement('a');
+    a.href = relativeZip;
+    a.download = 'Ramify_Proprietary_Legal_Files.zip';
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  window._ramifyShowLegal = function(){
+    var p=_ramifyGetPane(); if(!p) return;
+    p.innerHTML = '<div class=\"section\"><h4>Copyright / Legal</h4><p>Click to download the legal documents bundle.</p><div style=\"margin:10px 0\"><button class=\"chip-btn\" onclick=\"_ramifyDownloadLegal()\">⬇️ Download Legal Documents (ZIP)</button></div><small>Place <code>Ramify_Proprietary_Legal_Files.zip</code> next to this HTML for the most reliable download.</small></div>';
+  };
+
+  // Modal control (global open/close)
+  var backdrop = null, modal = null, fallbackBtn = null;
+  function ensureRefs(){
+    backdrop = document.getElementById('ramifySettingsBackdrop');
+    modal = document.getElementById('ramifySettingsModal');
+    fallbackBtn = document.getElementById('ramifySettingsFallback');
+  }
+  window._ramifyOpenSettings = function(){
+    ensureRefs();
+    if(backdrop) backdrop.style.display='block';
+    if(modal) modal.style.display='block';
+  };
+  window._ramifyCloseSettings = function(){
+    ensureRefs();
+    if(backdrop) backdrop.style.display='none';
+    if(modal) modal.style.display='none';
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    ensureRefs();
+    // Wire close actions
+    var x = document.getElementById('ramifySettingsClose');
+    if(x) x.onclick = _ramifyCloseSettings;
+    if(backdrop) backdrop.onclick = _ramifyCloseSettings;
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') _ramifyCloseSettings(); });
+
+    // Try to find an existing settings trigger and wire it to open the modal
+    var triggers = [];
+    var byId = document.getElementById('openSettings'); if(byId) triggers.push(byId);
+    var byTitle = document.querySelector('[title=\"Settings\"]'); if(byTitle) triggers.push(byTitle);
+    var byText = Array.from(document.querySelectorAll('button, .icon-btn, .chip-btn')).find(b=>/settings/i.test(b.textContent||''));
+    if(byText) triggers.push(byText);
+
+    if(triggers.length===0){
+      // Show fallback button if no trigger found
+      if(fallbackBtn) fallbackBtn.style.display='inline-flex';
+    }else{
+      triggers.forEach(function(t){
+        if(!t._ramifyWired){
+          t.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); _ramifyOpenSettings(); });
+          t._ramifyWired = true;
+        }
+      });
+    }
+  });
+})();</script><style id=ramify-bar-style>:root{--heading-bar-bg:linear-gradient(135deg,#39404a,#1b2430)}.heading-bar{background:var(--heading-bar-bg)!important;border:1px solid rgba(255,255,255,.08)!important}#barColorFab{position:fixed;right:16px;bottom:16px;z-index:9999;display:none;align-items:center;gap:6px;background:#202837;color:#eaf2ff;border:1px solid rgba(255,255,255,.1);padding:10px 12px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35);cursor:pointer;user-select:none}#barColorFab small{opacity:.8}#barPalette{position:fixed;right:16px;bottom:68px;z-index:10000;display:none;background:#0f141c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);min-width:240px}#barPalette h4{margin:0 0 8px;font-size:14px;letter-spacing:.3px}.swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.swatch{height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12)}.swatch:hover{transform:translateY(-1px)}.row{display:flex;gap:8px;align-items:center;margin-top:10px}.row input[type=text]{flex:1;padding:8px 10px;border-radius:10px;background:#0b0f14;color:#eaf2ff;border:1px solid rgba(255,255,255,.12)}</style><div id=barColorFab>🎨 <small>Bar color</small></div><div role=dialog id=barPalette aria-label="Shortcut Bar Color"><h4>Shortcut Bar color</h4><div class=swatches><div class=swatch style=background:linear-gradient(135deg,#39404a,#1b2430) data-val=""></div><div class=swatch style=background:linear-gradient(135deg,#22d3ee,#a78bfa) data-val=linear-gradient(135deg,#22d3ee,#a78bfa)></div><div class=swatch style=background:linear-gradient(135deg,#10b981,#60a5fa) data-val=linear-gradient(135deg,#10b981,#60a5fa)></div><div class=swatch style=background:linear-gradient(135deg,#0ea5e9,#14b8a6) data-val=linear-gradient(135deg,#0ea5e9,#14b8a6)></div><div class=swatch style=background:linear-gradient(135deg,#ef4444,#f59e0b) data-val=linear-gradient(135deg,#ef4444,#f59e0b)></div><div class=swatch style=background:linear-gradient(135deg,#8b5cf6,#06b6d4) data-val=linear-gradient(135deg,#8b5cf6,#06b6d4)></div></div><div class=row><input id=barCustom placeholder="CSS color or gradient..."> <button id=barApply style="padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#1a2230;color:#eaf2ff;cursor:pointer">Apply</button></div></div><script>(function(){
+  const STORE_KEY = "ramify_heading_bar_bg";
+  // 1) Apply saved bar color on startup
+  const saved = localStorage.getItem(STORE_KEY);
+  if(saved!==null){
+    document.documentElement.style.setProperty("--heading-bar-bg", saved || "linear-gradient(135deg,#39404a,#1b2430)");
+  }
+
+  // 2) Wire Settings integration if available, else show floating button as fallback
+  function openPalette(){ 
+    const p = document.getElementById("barPalette");
+    p.style.display = (p.style.display==="block" ? "none" : "block");
+  }
+  function closePalette(){ const p = document.getElementById("barPalette"); p.style.display="none"; }
+  document.getElementById("barApply").addEventListener("click", function(){
+    const val = (document.getElementById("barCustom").value||"").trim();
+    if(val.length){
+      document.documentElement.style.setProperty("--heading-bar-bg", val);
+      localStorage.setItem(STORE_KEY, val);
+      closePalette();
+    }
+  });
+  document.querySelectorAll("#barPalette .swatch").forEach(function(el){
+    el.addEventListener("click", function(){
+      const val = el.getAttribute("data-val");
+      document.documentElement.style.setProperty("--heading-bar-bg", val || "linear-gradient(135deg,#39404a,#1b2430)");
+      localStorage.setItem(STORE_KEY, val||"");
+      closePalette();
+    });
+  });
+
+  // Try to mount a button inside an existing Settings UI
+  function mountIntoSettings(){
+    const settingsBody = document.querySelector("#settingsContent, #settingsBody, .settings-body, #settings .content, #settings");
+    if(settingsBody && !document.getElementById("barColorSettingsRow")){
+      const block = document.createElement("div");
+      block.id = "barColorSettingsRow";
+      block.style.marginTop = "14px";
+      block.innerHTML = '<h3 style="margin:0 0 6px">Shortcut Bar color</h3><div><button id="openBarPalette" class="chip-btn" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#1a2230;color:#eaf2ff;cursor:pointer">Choose color</button></div>';
+      settingsBody.appendChild(block);
+      const btn = block.querySelector("#openBarPalette");
+      btn.addEventListener("click", openPalette);
+      return true;
+    }
+    return false;
+  }
+
+  let mounted = mountIntoSettings();
+  if(!mounted){
+    // show fallback floating button
+    const fab = document.getElementById("barColorFab");
+    fab.style.display = "inline-flex";
+    fab.addEventListener("click", openPalette);
+  }
+
+  // Dismiss palette on outside click
+  document.addEventListener("click", function(ev){
+    const pal = document.getElementById("barPalette");
+    const fab = document.getElementById("barColorFab");
+    if(pal.style.display==="block" && !pal.contains(ev.target) && ev.target!==fab && !fab.contains(ev.target)){
+      closePalette();
+    }
+  });
+
+  // 3) Fix: ensure new cards do NOT flash teal — force default look immediately
+  const applyDefaultCardLook = (card)=>{
+    if(!card) return;
+    // Only adjust background once (avoid fighting user-picked colors)
+    if(!card.dataset.defaulted){
+      card.style.background = getComputedStyle(document.documentElement).getPropertyValue("--card").trim() || "#131a22";
+      card.style.color = getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#eaf2ff";
+      card.dataset.defaulted = "1";
+    }
+  };
+
+  // Patch App.createCard if present
+  function patchCreate(){
+    try{
+      if(window.App && typeof App.createCard === "function" && !App.__patchedCreate){
+        const orig = App.createCard.bind(App);
+        App.createCard = function(container, headingName, item){
+          const result = orig(container, headingName, item);
+          // Try to locate by id if available, else last .card in container
+          let el = null;
+          if(item && item.id != null){
+            el = document.getElementById("card-"+item.id);
+          }
+          if(!el && container){
+            const cards = container.querySelectorAll(".card");
+            el = cards[cards.length-1];
+          }
+          applyDefaultCardLook(el);
+          return result;
+        };
+        App.__patchedCreate = true;
+        return true;
+      }
+    }catch(e){}
+    return false;
+  }
+  if(!patchCreate()){
+    // Fallback: watch DOM for new .card nodes
+    const obs = new MutationObserver((muts)=>{
+      muts.forEach(m=>{
+        m.addedNodes && m.addedNodes.forEach(n=>{
+          if(n && n.nodeType===1){
+            if(n.classList.contains("card")) applyDefaultCardLook(n);
+            n.querySelectorAll && n.querySelectorAll(".card").forEach(applyDefaultCardLook);
+          }
+        });
+      });
+    });
+    obs.observe(document.body, { childList:true, subtree:true });
+  }
+})();</script><style id=ramify-per-heading-style></style><div style="display:none;position:fixed;z-index:10000;background:#0f141c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);min-width:240px"id=headingColorPalette><h4 style="margin:0 0 8px;font-size:14px;letter-spacing:.3px">Heading Bar color</h4><div class=swatches style=display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#39404a,#1b2430)"data-val=""></div><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#22d3ee,#a78bfa)"data-val=linear-gradient(135deg,#22d3ee,#a78bfa)></div><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#10b981,#60a5fa)"data-val=linear-gradient(135deg,#10b981,#60a5fa)></div><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#0ea5e9,#14b8a6)"data-val=linear-gradient(135deg,#0ea5e9,#14b8a6)></div><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#ef4444,#f59e0b)"data-val=linear-gradient(135deg,#ef4444,#f59e0b)></div><div class=swatch style="height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#8b5cf6,#06b6d4)"data-val=linear-gradient(135deg,#8b5cf6,#06b6d4)></div></div><div class=row style=display:flex;gap:8px;align-items:center;margin-top:10px><input id=headingBarCustom placeholder="CSS color or gradient..."style="flex:1;padding:8px 10px;border-radius:10px;background:#0b0f14;color:#eaf2ff;border:1px solid rgba(255,255,255,.12)"> <button id=headingBarApply style="padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#1a2230;color:#eaf2ff;cursor:pointer">Apply</button></div></div><script>(function(){
+  const MAP_KEY = "ramify_heading_bar_map";
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(MAP_KEY)||"{}"); }catch{ return {}; } }
+  function saveMap(m){ localStorage.setItem(MAP_KEY, JSON.stringify(m)); }
+
+  let targetHeading = null; // name string
+  const palette = document.getElementById("headingColorPalette");
+  const applyBtn = document.getElementById("headingBarApply");
+
+  function openPaletteFor(name, anchorBtn){
+    targetHeading = name;
+    // position near anchor
+    const r = anchorBtn.getBoundingClientRect();
+    palette.style.left = (r.left + window.scrollX - 10) + "px";
+    palette.style.top  = (r.bottom + window.scrollY + 8) + "px";
+    palette.style.display = "block";
+    document.getElementById("headingBarCustom").value = "";
+  }
+  function closePalette(){ palette.style.display="none"; }
+
+  applyBtn.addEventListener("click", function(){
+    const val = (document.getElementById("headingBarCustom").value||"").trim();
+    if(!targetHeading) return;
+    const map = loadMap();
+    map[targetHeading] = val;
+    saveMap(map);
+    applyHeadingBar(targetHeading, val);
+    closePalette();
+  });
+  palette.querySelectorAll(".swatch").forEach(function(el){
+    el.addEventListener("click", function(){
+      if(!targetHeading) return;
+      const val = el.getAttribute("data-val") || "";
+      const map = loadMap(); map[targetHeading] = val; saveMap(map);
+      applyHeadingBar(targetHeading, val);
+      closePalette();
+    });
+  });
+
+  function applyHeadingBar(name, value){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    bar.style.background = (value && value.length ? value : "linear-gradient(135deg,#39404a,#1b2430)");
+    bar.style.border = "1px solid rgba(255,255,255,0.08)";
+  }
+
+  // Add a "🎨 Bar color" item into each 3-dot menu after render
+  function enhanceMenus(){
+    if(!window.App || !document.getElementById("headingsRoot")) return;
+    (App.state.headings || []).forEach(function(name){
+      const menu = document.getElementById(`ha-${name}`);
+      if(!menu) return;
+      if(menu.querySelector(".row .bar-color-btn")) return; // already added
+      const row = document.createElement("div");
+      row.className = "row";
+      row.style.marginTop = "6px";
+      row.innerHTML = `<button class="chip-btn bar-color-btn">🎨 Bar color</button>`;
+      menu.insertBefore(row, menu.firstChild.nextSibling); // after first row (Add shortcut)
+      const btn = row.querySelector(".bar-color-btn");
+      btn.addEventListener("click", function(ev){
+        ev.stopPropagation();
+        openPaletteFor(name, btn);
+      });
+    });
+  }
+
+  // Apply saved colors to bars
+  function applyAllSaved(){
+    const map = loadMap();
+    (App.state.headings || []).forEach(function(name){
+      if(map.hasOwnProperty(name)){
+        applyHeadingBar(name, map[name] || "");
+      }
+    });
+  }
+
+  function patchRender(){
+    if(!window.App || App.__renderHeadingsPatched) return;
+    const orig = App.renderHeadingsUI ? App.renderHeadingsUI.bind(App) : null;
+    if(!orig) return;
+    App.renderHeadingsUI = function(){
+      const r = orig();
+      // After original render, enhance menus and apply saved styles
+      try{ enhanceMenus(); applyAllSaved(); }catch(e){ console.warn(e); }
+      return r;
+    };
+    App.__renderHeadingsPatched = true;
+  }
+
+  // Stronger default card color enforcement (prevents teal flash)
+  function reinforceCardDefaults(){
+    const apply = (card)=>{
+      if(!card) return;
+      // force with !important so any inline teal is overridden
+      card.style.setProperty("background", getComputedStyle(document.documentElement).getPropertyValue("--card").trim() || "#131a22", "important");
+      card.style.setProperty("color", getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#eaf2ff", "important");
+    };
+    const obs = new MutationObserver((muts)=>{
+      muts.forEach(m=>{
+        m.addedNodes && m.addedNodes.forEach(n=>{
+          if(n.nodeType===1){
+            if(n.classList && n.classList.contains("card")) apply(n);
+            n.querySelectorAll && n.querySelectorAll(".card").forEach(apply);
+          }
+        });
+      });
+    });
+    obs.observe(document.body, { childList:true, subtree:true });
+    // Sweep existing once
+    document.querySelectorAll(".card").forEach(apply);
+  }
+
+  // Dismiss palette on outside click
+  document.addEventListener("click", function(ev){
+    if(palette.style.display==="block" && !palette.contains(ev.target)){
+      closePalette();
+    }
+  });
+
+  function init(){
+    patchRender();
+    // If headings already rendered, run now
+    try{ enhanceMenus(); applyAllSaved(); }catch{}
+    reinforceCardDefaults();
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init, { once:true });
+  } else { init(); }
+})();</script><style>#barColorFab{display:none!important;visibility:hidden!important}</style><script>(function(){
+  // Remove legacy floating button node if present
+  const legacy = document.getElementById("barColorFab");
+  if(legacy && legacy.parentNode){ legacy.parentNode.removeChild(legacy); }
+
+  // Expand per-heading palette with more options
+  const pal = document.getElementById("headingColorPalette");
+  if(pal && !pal.dataset.enhanced){
+    pal.dataset.enhanced = "1";
+    const grid = pal.querySelector(".swatches");
+    if(grid){
+      const extra = [
+        "linear-gradient(135deg,#0ea5e9,#9333ea)",   // cyberwave
+        "linear-gradient(135deg,#f43f5e,#22d3ee)",   // neon candy
+        "linear-gradient(135deg,#f59e0b,#84cc16)",   // sunset lime
+        "linear-gradient(135deg,#1e293b,#0ea5e9)",   // midnight ocean
+        "linear-gradient(135deg,#ef4444,#3b82f6)",   // heat vs cool
+        "linear-gradient(135deg,#14b8a6,#facc15)"    // tropic
+      ];
+      extra.forEach(v=>{
+        const d = document.createElement("div");
+        d.className = "swatch"; d.setAttribute("data-val", v);
+        d.setAttribute("style", "height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:"+v);
+        grid.appendChild(d);
+      });
+      // rebind click for newly added swatches
+      const apply = function(name, val){
+        const map = JSON.parse(localStorage.getItem("ramify_heading_bar_map")||"{}");
+        map[name] = val; localStorage.setItem("ramify_heading_bar_map", JSON.stringify(map));
+        const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+        if(bar){ bar.style.background = (val||"linear-gradient(135deg,#39404a,#1b2430)"); bar.style.border="1px solid rgba(255,255,255,0.08)"; }
+        document.getElementById("headingColorPalette").style.display="none";
+      };
+      pal.addEventListener("click", function(ev){
+        const sw = ev.target.closest(".swatch"); if(!sw) return;
+        const btn = document.querySelector(".bar-color-btn.__active_for");
+        if(!btn) return;
+        const name = btn.dataset.heading;
+        apply(name, sw.getAttribute("data-val")||"");
+      });
+    }
+  }
+
+  // Mark the active heading button when opening palette so we can know which heading to update
+  document.addEventListener("click", function(ev){
+    const btn = ev.target.closest(".bar-color-btn");
+    if(btn){ document.querySelectorAll(".bar-color-btn.__active_for").forEach(b=>b.classList.remove("__active_for"));
+      btn.classList.add("__active_for"); btn.dataset.heading = btn.closest('[id^=\"main-heading-\"]').id.replace('main-heading-','');
+    }
+  });
+
+  // Ultra-strong default color enforcement for NEW cards (prevents teal sticking)
+  const forceDefault = (el)=>{
+    if(!el) return;
+    el.style.setProperty("background", getComputedStyle(document.documentElement).getPropertyValue("--card").trim() || "#131a22", "important");
+    el.style.setProperty("color", getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#eaf2ff", "important");
+  };
+  const obs = new MutationObserver((muts)=>{
+    muts.forEach(m=>{
+      m.addedNodes && m.addedNodes.forEach(n=>{
+        if(n.nodeType===1){
+          if(n.classList && n.classList.contains("card")) forceDefault(n);
+          n.querySelectorAll && n.querySelectorAll(".card").forEach(forceDefault);
+        }
+      });
+    });
+  });
+  obs.observe(document.body, {childList:true, subtree:true});
+  // initial sweep
+  document.querySelectorAll(".card").forEach(forceDefault);
+})();</script><style>.card{background:var(--card)!important;color:var(--text)!important}#headingColorPalette{z-index:999999!important;position:fixed!important}</style><script>(function(){
+  // When user clicks "🎨 Bar color", keep the dropdown open and show palette above it
+  document.addEventListener("click", function(ev){
+    const btn = ev.target.closest(".bar-color-btn");
+    if(!btn) return;
+    ev.stopPropagation();
+    const menu = btn.closest(".mini-menu");
+    if(menu){ menu.style.zIndex = 990000; } // keep menu below palette but above page
+    // position palette just to the right of the menu to avoid overlap
+    const pal = document.getElementById("headingColorPalette");
+    const r = btn.getBoundingClientRect();
+    pal.style.left = (r.right + 8 + window.scrollX) + "px";
+    pal.style.top  = (r.top + window.scrollY) + "px";
+    pal.style.display = "block";
+  }, true);
+})();</script><style>#headingColorPalette{z-index:2147483000!important;position:fixed!important}</style><script>(function(){
+  /* ---------- 1) FINAL TEAL KILL: wrap App.createCard ---------- */
+  function forceDefaultOn(el){
+    if(!el) return;
+    el.style.setProperty('background', getComputedStyle(document.documentElement).getPropertyValue('--card').trim() || '#131a22', 'important');
+    el.style.setProperty('color', getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#eaf2ff', 'important');
+  }
+  function patchCreateCard(){
+    if(!window.App || App.__noTeal) return;
+    if(typeof App.createCard !== 'function') return;
+    const orig = App.createCard.bind(App);
+    App.createCard = function(container, headingName, item){
+      // Guarantee item has no teal-ish default
+      try{
+        if(item){
+          if(!item.colorName || /^default$/i.test(item.colorName) || /^teal$/i.test(item.colorName)){
+            item.colorName = ''; // neutral; renderer will fall back to var(--card)
+            if('color' in item) item.color = ''; // clear any override
+          }
+        }
+      }catch{}
+      const res = orig(container, headingName, item);
+      try{
+        // Find the card we just appended (last child)
+        let card = null;
+        if(container){
+          const cards = container.querySelectorAll('.card');
+          card = cards[cards.length-1] || null;
+        }
+        forceDefaultOn(card);
+      }catch{}
+      return res;
+    };
+    App.__noTeal = true;
+  }
+
+  /* ---------- 2) PER-BAR COLOR SAVE/APPLY (robust) ---------- */
+  const MAP_KEY = 'ramify_heading_bar_map';
+  let _lastHeadingForPalette = null;
+
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(MAP_KEY)||'{}'); }catch{ return {}; } }
+  function saveMap(m){ localStorage.setItem(MAP_KEY, JSON.stringify(m)); }
+  function applyHeadingBar(name, value){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    bar.style.background = (value && value.length ? value : 'linear-gradient(135deg,#39404a,#1b2430)');
+    bar.style.border = '1px solid rgba(255,255,255,0.08)';
+  }
+  function applyAllSaved(){
+    const map = loadMap();
+    (window.App && App.state && App.state.headings || []).forEach(function(name){
+      if(Object.prototype.hasOwnProperty.call(map, name)) applyHeadingBar(name, map[name]||'');
+    });
+  }
+  function enhanceMenus(){
+    (window.App && App.state && App.state.headings || []).forEach(function(name){
+      const menu = document.getElementById(`ha-${name}`);
+      if(!menu || menu.querySelector('.bar-color-btn')) return;
+      const row = document.createElement('div');
+      row.className = 'row'; row.style.marginTop = '6px';
+      row.innerHTML = `<button class="chip-btn bar-color-btn">🎨 Bar color</button>`;
+      // Add as first actionable item
+      menu.insertBefore(row, menu.firstChild);
+      const btn = row.querySelector('.bar-color-btn');
+      btn.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        _lastHeadingForPalette = name;
+        const pal = document.getElementById('headingColorPalette');
+        if(!pal){
+          // Create palette if missing
+          const div = document.createElement('div');
+          div.id = 'headingColorPalette';
+          div.setAttribute('role', 'dialog');
+          div.style.cssText = 'display:block;position:fixed;z-index:2147483000;background:#0f141c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);min-width:260px;';
+          div.innerHTML = '<h4 style=\"margin:0 0 8px;font-size:14px\">Heading Bar color</h4><div class=\"swatches\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:8px\"></div>';
+          document.body.appendChild(div);
+          const presets = ['', 'linear-gradient(135deg,#22d3ee,#a78bfa)','linear-gradient(135deg,#10b981,#60a5fa)','linear-gradient(135deg,#0ea5e9,#14b8a6)','linear-gradient(135deg,#ef4444,#f59e0b)','linear-gradient(135deg,#8b5cf6,#06b6d4)','linear-gradient(135deg,#0ea5e9,#9333ea)','linear-gradient(135deg,#f59e0b,#84cc16)','linear-gradient(135deg,#1e293b,#0ea5e9)','linear-gradient(135deg,#14b8a6,#facc15)'];
+          const grid = div.querySelector('.swatches');
+          presets.forEach(v=>{ const d=document.createElement('div'); d.className='swatch'; d.dataset.val=v; d.style.cssText='height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:'+(v||'linear-gradient(135deg,#39404a,#1b2430)'); grid.appendChild(d); });
+          div.addEventListener('click', function(e){
+            const sw = e.target.closest('.swatch'); if(!sw || !_lastHeadingForPalette) return;
+            const map = loadMap(); map[_lastHeadingForPalette] = sw.dataset.val || ''; saveMap(map);
+            applyHeadingBar(_lastHeadingForPalette, sw.dataset.val||''); div.style.display='none';
+          });
+        }
+        const pal2 = document.getElementById('headingColorPalette');
+        const r = btn.getBoundingClientRect();
+        pal2.style.left = (r.right + 8 + window.scrollX) + 'px';
+        pal2.style.top  = (r.top + window.scrollY) + 'px';
+        pal2.style.display = 'block';
+        // lift menu but keep below palette
+        menu.style.zIndex = 2147482000;
+      });
+    });
+  }
+
+  function patchRenderHeadings(){
+    if(!window.App || App.__menusEnhanced) return;
+    const orig = App.renderHeadingsUI && App.renderHeadingsUI.bind(App);
+    if(!orig) return;
+    App.renderHeadingsUI = function(){
+      const r = orig();
+      try{ enhanceMenus(); applyAllSaved(); }catch(e){ console.warn(e); }
+      return r;
+    };
+    App.__menusEnhanced = true;
+  }
+
+  function init(){
+    patchCreateCard();
+    patchRenderHeadings();
+    // initial apply if already rendered
+    try{ enhanceMenus(); applyAllSaved(); }catch{}
+    // Global click to close palette when clicking elsewhere
+    document.addEventListener('click', function(ev){
+      const pal = document.getElementById('headingColorPalette'); if(!pal) return;
+      if(pal.style.display==='block' && !pal.contains(ev.target) && !ev.target.closest('.bar-color-btn')) pal.style.display='none';
+    });
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init, {once:true}); } else { init(); }
+})();</script><script>(function(){
+  // 0) Clean up legacy styles and elements that block per-bar overrides
+  (function cleanup(){
+    const killIds = ["barColorFab","barPalette","barCustom","barApply","ramify-bar-style"];
+    killIds.forEach(id=>{ const el=document.getElementById(id); if(el && el.parentNode) el.parentNode.removeChild(el); });
+  })();
+
+  // 1) Utilities for per-heading bar color
+  const MAP_KEY = 'ramify_heading_bar_map';
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(MAP_KEY)||'{}'); }catch{ return {}; } }
+  function saveMap(m){ localStorage.setItem(MAP_KEY, JSON.stringify(m)); }
+
+  function applyHeadingBar(name, value){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    const val = (value && value.length) ? value : 'linear-gradient(135deg,#39404a,#1b2430)';
+    bar.style.setProperty('background', val, 'important'); // beat any theme/defaults
+    bar.style.setProperty('border', '1px solid rgba(255,255,255,0.08)', 'important');
+  }
+
+  function applyAllSaved(){
+    const map = loadMap();
+    (window.App && App.state && App.state.headings || []).forEach(function(name){
+      if(Object.prototype.hasOwnProperty.call(map, name)){
+        applyHeadingBar(name, map[name]||'');
+      }
+    });
+  }
+
+  // 2) Palette (no custom input field) and attach to 3-dot menu item
+  let activeHeading = null;
+  function ensurePalette(){
+    let pal = document.getElementById('headingColorPalette');
+    if(!pal){
+      pal = document.createElement('div');
+      pal.id = 'headingColorPalette';
+      pal.setAttribute('role','dialog');
+      pal.style.cssText = 'display:none;position:fixed;z-index:2147483000;background:#0f141c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);min-width:260px;';
+      pal.innerHTML = '<h4 style=\"margin:0 0 8px;font-size:14px\">Heading Bar color</h4><div class=\"swatches\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:8px\"></div>';
+      document.body.appendChild(pal);
+      const presets = [
+        '', 'linear-gradient(135deg,#22d3ee,#a78bfa)','linear-gradient(135deg,#10b981,#60a5fa)',
+        'linear-gradient(135deg,#0ea5e9,#14b8a6)','linear-gradient(135deg,#ef4444,#f59e0b)',
+        'linear-gradient(135deg,#8b5cf6,#06b6d4)','linear-gradient(135deg,#0ea5e9,#9333ea)',
+        'linear-gradient(135deg,#f59e0b,#84cc16)','linear-gradient(135deg,#1e293b,#0ea5e9)',
+        'linear-gradient(135deg,#14b8a6,#facc15)','linear-gradient(135deg,#fb7185,#e879f9)',
+        'linear-gradient(135deg,#38bdf8,#22d3ee)'
+      ];
+      const grid = pal.querySelector('.swatches');
+      presets.forEach(v=>{ const d=document.createElement('div'); d.className='swatch'; d.dataset.val=v;
+        d.style.cssText='height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:'+(v||'linear-gradient(135deg,#39404a,#1b2430)');
+        grid.appendChild(d);
+      });
+      pal.addEventListener('click', function(e){
+        const sw = e.target.closest('.swatch'); if(!sw || !activeHeading) return;
+        const val = sw.dataset.val || '';
+        const map = loadMap(); map[activeHeading] = val; saveMap(map);
+        applyHeadingBar(activeHeading, val);
+        pal.style.display='none';
+      });
+      document.addEventListener('click', function(ev){
+        if(pal.style.display==='block' && !pal.contains(ev.target) && !ev.target.closest('.bar-color-btn')) pal.style.display='none';
+      });
+    }
+    return pal;
+  }
+
+  function enhanceMenus(){
+    if(!window.App || !App.state || !App.state.headings) return;
+    App.state.headings.forEach(function(name){
+      const menu = document.getElementById(`ha-${name}`);
+      if(!menu) return;
+
+      // Remove "Open all" button from the heading bar (outside menu)
+      try{
+        const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar .heading-actions`);
+        if(bar){
+          const btns = Array.from(bar.querySelectorAll('button.chip-btn'));
+          btns.forEach(b=>{ if(/open all/i.test(b.textContent||'')) b.remove(); });
+        }
+      }catch{}
+
+      // Insert our Bar color item at the top of the menu if not present
+      if(!menu.querySelector('.bar-color-btn')){
+        const row = document.createElement('div'); row.className='row'; row.style.marginTop='0';
+        row.innerHTML = '<button class=\"chip-btn bar-color-btn\">🎨 Bar color</button>';
+        menu.insertBefore(row, menu.firstChild);
+        const btn = row.querySelector('.bar-color-btn');
+        btn.addEventListener('click', function(ev){
+          ev.stopPropagation();
+          activeHeading = name;
+          const pal = ensurePalette();
+          const r = btn.getBoundingClientRect();
+          pal.style.left = (r.right + 8 + window.scrollX) + 'px';
+          pal.style.top  = (r.top + window.scrollY) + 'px';
+          pal.style.display = 'block';
+          menu.style.zIndex = 2147482000; // keep menu above page but below palette
+        });
+      }
+    });
+  }
+
+  // 3) Ensure any newly created cards never show teal (belt+braces)
+  (function patchCreateCard(){
+    if(!window.App || App.__noTeal6) return;
+    if(typeof App.createCard === 'function'){
+      const orig = App.createCard.bind(App);
+      App.createCard = function(container, headingName, item){
+        if(item){ if(!item.colorName || /^teal$/i.test(item.colorName)) item.colorName=''; if('color' in item) item.color=''; }
+        const res = orig(container, headingName, item);
+        try{
+          const cards = container ? container.querySelectorAll('.card') : [];
+          const card = cards[cards.length-1]; if(card){
+            card.style.setProperty('background', getComputedStyle(document.documentElement).getPropertyValue('--card').trim() || '#131a22', 'important');
+            card.style.setProperty('color', getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#eaf2ff', 'important');
+          }
+        }catch{}
+        return res;
+      };
+      App.__noTeal6 = true;
+    }
+  })();
+
+  function init(){
+    try{ enhanceMenus(); applyAllSaved(); }catch(e){ console.warn(e); }
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init, { once:true }); } else { init(); }
+})();</script><style>#headingsRoot .heading-bar .chip-btn,#headingsRoot .heading-bar .heading-name,#headingsRoot .heading-bar .heading-toggle{color:var(--hb-fg,var(--text))!important}#headingsRoot .heading-bar .chip-btn{border-color:rgba(255,255,255,.22)!important}</style><script>(function(){
+  const MAP_KEY = 'ramify_heading_bar_map';
+
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(MAP_KEY)||'{}'); }catch{ return {}; } }
+  function saveMap(m){ localStorage.setItem(MAP_KEY, JSON.stringify(m)); }
+
+  // Parse first hex color from a CSS color/gradient string
+  function firstHex(css){
+    if(!css) return null;
+    const m = css.match(/#([0-9a-f]{6})/i);
+    return m ? m[0] : null;
+  }
+  function hexToRgb(hex){
+    if(!hex) return null;
+    const h = hex.replace('#','');
+    return { r: parseInt(h.slice(0,2),16), g: parseInt(h.slice(2,4),16), b: parseInt(h.slice(4,6),16) };
+  }
+  function luminance(rgb){
+    if(!rgb) return 0;
+    const srgb = ['r','g','b'].map(k=>{
+      let v = rgb[k]/255;
+      return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4);
+    });
+    return 0.2126*srgb[0] + 0.7152*srgb[1] + 0.0722*srgb[2];
+  }
+  function pickForeground(css){
+    const rgb = hexToRgb(firstHex(css) || '#39404a'); // fallback
+    const L = luminance(rgb);
+    // choose light text for dark backgrounds
+    return (L < 0.5) ? '#ffffff' : '#0b1220';
+  }
+
+  function setHeadingContrast(name, cssBg){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    const fg = pickForeground(cssBg);
+    // set inline CSS variable to be used in CSS
+    bar.style.setProperty('--hb-fg', fg);
+  }
+
+  function applyHeadingBar(name, value){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    const val = (value && value.length) ? value : 'linear-gradient(135deg,#39404a,#1b2430)';
+    bar.style.setProperty('background', val, 'important');
+    bar.style.setProperty('border', '1px solid rgba(255,255,255,0.08)', 'important');
+    setHeadingContrast(name, val);
+  }
+  function applyAllSaved(){
+    const map = loadMap();
+    (window.App && App.state && App.state.headings || []).forEach(function(name){
+      if(Object.prototype.hasOwnProperty.call(map, name)){
+        applyHeadingBar(name, map[name]||'');
+      } else {
+        applyHeadingBar(name, '');
+      }
+    });
+  }
+
+  // Palette (swatches only)
+  let activeHeading = null;
+  function ensurePalette(){
+    let pal = document.getElementById('headingColorPalette');
+    if(!pal){
+      pal = document.createElement('div');
+      pal.id = 'headingColorPalette';
+      pal.setAttribute('role','dialog');
+      pal.style.cssText = 'display:none;position:fixed;z-index:2147483000;background:#0f141c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);min-width:260px;';
+      pal.innerHTML = '<h4 style=\"margin:0 0 8px;font-size:14px\">Heading Bar color</h4><div class=\"swatches\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:8px\"></div>';
+      document.body.appendChild(pal);
+      const presets = [
+        '', 'linear-gradient(135deg,#22d3ee,#a78bfa)','linear-gradient(135deg,#10b981,#60a5fa)',
+        'linear-gradient(135deg,#0ea5e9,#14b8a6)','linear-gradient(135deg,#ef4444,#f59e0b)',
+        'linear-gradient(135deg,#8b5cf6,#06b6d4)','linear-gradient(135deg,#0ea5e9,#9333ea)',
+        'linear-gradient(135deg,#f59e0b,#84cc16)','linear-gradient(135deg,#1e293b,#0ea5e9)',
+        'linear-gradient(135deg,#14b8a6,#facc15)','linear-gradient(135deg,#fb7185,#e879f9)',
+        'linear-gradient(135deg,#38bdf8,#22d3ee)'
+      ];
+      const grid = pal.querySelector('.swatches');
+      presets.forEach(v=>{ const d=document.createElement('div'); d.className='swatch'; d.dataset.val=v;
+        d.style.cssText='height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:'+(v||'linear-gradient(135deg,#39404a,#1b2430)');
+        grid.appendChild(d);
+      });
+      pal.addEventListener('click', function(e){
+        const sw = e.target.closest('.swatch'); if(!sw || !activeHeading) return;
+        const val = sw.dataset.val || '';
+        const map = loadMap(); map[activeHeading] = val; saveMap(map);
+        applyHeadingBar(activeHeading, val);
+        pal.style.display='none';
+      });
+      document.addEventListener('click', function(ev){
+        if(pal.style.display==='block' && !pal.contains(ev.target) && !ev.target.closest('.bar-color-btn')) pal.style.display='none';
+      });
+    }
+    return pal;
+  }
+
+  function enhanceMenus(){
+    if(!window.App || !App.state || !App.state.headings) return;
+    App.state.headings.forEach(function(name){
+      const menu = document.getElementById(`ha-${name}`);
+      if(!menu) return;
+
+      // Remove "Open all" button from the heading bar (outside menu)
+      try{
+        const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar .heading-actions`);
+        if(bar){
+          Array.from(bar.querySelectorAll('button.chip-btn')).forEach(b=>{ if(/open all/i.test(b.textContent||'')) b.remove(); });
+        }
+      }catch{}
+
+      // Insert our Bar color item at the very top of the menu if not present
+      if(!menu.querySelector('.bar-color-btn')){
+        const row = document.createElement('div'); row.className='row'; row.style.marginTop='0';
+        row.innerHTML = '<button class=\"chip-btn bar-color-btn\">🎨 Bar color</button>';
+        menu.insertBefore(row, menu.firstChild);
+        const btn = row.querySelector('.bar-color-btn');
+        btn.addEventListener('click', function(ev){
+          ev.stopPropagation();
+          activeHeading = name;
+          const pal = ensurePalette();
+          const r = btn.getBoundingClientRect();
+          pal.style.left = (r.right + 8 + window.scrollX) + 'px';
+          pal.style.top  = (r.top + window.scrollY) + 'px';
+          pal.style.display = 'block';
+          menu.style.zIndex = 2147482000; // keep menu above page but below palette
+        });
+      }
+    });
+  }
+
+  // Patch renderHeadingsUI so enhancements re-apply after any re-render
+  function patchRenderHeadings(){
+    if(!window.App || App.__menusEnhanced7) return;
+    const orig = App.renderHeadingsUI && App.renderHeadingsUI.bind(App);
+    if(!orig) return;
+    App.renderHeadingsUI = function(){
+      const r = orig();
+      try{ enhanceMenus(); applyAllSaved(); }catch(e){ console.warn(e); }
+      return r;
+    };
+    App.__menusEnhanced7 = true;
+  }
+
+  function init(){
+    patchRenderHeadings();
+    // If already rendered, run now
+    try{ enhanceMenus(); applyAllSaved(); }catch(e){ console.warn(e); }
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init, { once:true }); } else { init(); }
+})();</script><style>#headingsRoot .heading-bar{--hb-fg:var(--text)}#headingsRoot .heading-bar>.heading-actions>.chip-btn,#headingsRoot .heading-bar>.heading-left .heading-name,#headingsRoot .heading-bar>.heading-left .heading-toggle{color:var(--hb-fg)!important}#headingsRoot .heading-bar .mini-menu,#headingsRoot .heading-bar .mini-menu *{color:var(--text)!important}</style><script>(function(){
+  const MAP_KEY = 'ramify_heading_bar_map';
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(MAP_KEY)||'{}'); }catch{ return {}; } }
+  function saveMap(m){ localStorage.setItem(MAP_KEY, JSON.stringify(m)); }
+
+  function applyHeadingBar(name, value){
+    const bar = document.querySelector(`#main-heading-${CSS.escape(name)} .heading-bar`);
+    if(!bar) return;
+    const val = (value && value.length) ? value : 'linear-gradient(135deg,#39404a,#1b2430)';
+    bar.style.setProperty('background', val, 'important');
+    bar.style.setProperty('border', '1px solid rgba(255,255,255,0.08)', 'important');
+
+    // Contrast calculation (same as before, inlined here to ensure presence)
+    function firstHex(css){ const m = (css||'').match(/#([0-9a-f]{6})/i); return m ? m[0] : null; }
+    function hexToRgb(h){ if(!h) return null; h=h.replace('#',''); return {r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16)}; }
+    function luminance(rgb){ if(!rgb) return 0; const f=x=>{x/=255; return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)}; return .2126*f(rgb.r)+.7152*f(rgb.g)+.0722*f(rgb.b); }
+    const rgb = hexToRgb(firstHex(val) || '#39404a'); const L = luminance(rgb);
+    const fg = (L < 0.5) ? '#ffffff' : '#0b1220';
+    bar.style.setProperty('--hb-fg', fg);
+  }
+
+  function applyAllSaved(){
+    const map = loadMap();
+    (window.App && App.state && App.state.headings || []).forEach(function(name){
+      applyHeadingBar(name, map[name] || '');
+    });
+  }
+
+  // Rebind the swatch click to re-apply globally after save
+  document.addEventListener('click', function(e){
+    const sw = e.target.closest('#headingColorPalette .swatch');
+    if(!sw) return;
+    // Find active heading by locating the nearest open menu
+    const openMenu = document.querySelector('.mini-menu[style*=\"display: block\"], .mini-menu.open, .mini-menu:not(.hidden)');
+    // Fallback: last clicked bar-color button caches heading via dataset on body
+    let heading = document.body.dataset.activeHeading || null;
+    if(openMenu && !heading){
+      const id = openMenu.id || '';
+      if(id.startsWith('ha-')) heading = id.slice(3);
+    }
+    if(!heading) return;
+    const map = loadMap(); map[heading] = sw.dataset.val || ''; saveMap(map);
+    applyHeadingBar(heading, map[heading]);
+    // Also re-apply across all (in case bars re-rendered)
+    setTimeout(applyAllSaved, 0);
+  }, true);
+
+  // Track which heading button opened the palette
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('.bar-color-btn');
+    if(btn){
+      const section = btn.closest('[id^=\"main-heading-\"]');
+      if(section){ document.body.dataset.activeHeading = section.id.replace('main-heading-',''); }
+    }
+  }, true);
+
+  // Ensure menus are enhanced after render
+  (function patchRenderHeadingsAgain(){
+    if(!window.App || App.__menusEnhanced8) return;
+    const orig = App.renderHeadingsUI && App.renderHeadingsUI.bind(App);
+    if(!orig) return;
+    App.renderHeadingsUI = function(){
+      const r = orig();
+      try{ applyAllSaved(); }catch(e){ console.warn(e); }
+      return r;
+    };
+    App.__menusEnhanced8 = true;
+  })();
+
+  // Initial sweep
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', applyAllSaved, {once:true}); } else { applyAllSaved(); }
+})();</script><script>(function(){
+  function rebuildPalette(){
+    let pal = document.getElementById('headingColorPalette');
+    if(!pal) return;
+    pal.innerHTML = '<h4 style="margin:0 0 8px;font-size:14px">Heading Bar color</h4><div class="swatches" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div>';
+    const grid = pal.querySelector('.swatches');
+    const presets = [
+      // Default
+      {name:'Default', val:''},
+
+      // Solids
+      {name:'Blue', val:'#3b82f6'},
+      {name:'Red', val:'#ef4444'},
+      {name:'Green', val:'#22c55e'},
+      {name:'Yellow', val:'#eab308'},
+      {name:'Purple', val:'#a855f7'},
+      {name:'Gray', val:'#6b7280'},
+
+      // Gradients (the nice flashy ones)
+      {name:'Aqua-Violet', val:'linear-gradient(135deg,#22d3ee,#a78bfa)'},
+      {name:'Mint-Sky', val:'linear-gradient(135deg,#10b981,#60a5fa)'},
+      {name:'Ocean', val:'linear-gradient(135deg,#0ea5e9,#14b8a6)'},
+      {name:'Sunset', val:'linear-gradient(135deg,#ef4444,#f59e0b)'},
+      {name:'Cyber', val:'linear-gradient(135deg,#8b5cf6,#06b6d4)'},
+      {name:'Neon', val:'linear-gradient(135deg,#0ea5e9,#9333ea)'},
+      {name:'Limewave', val:'linear-gradient(135deg,#f59e0b,#84cc16)'},
+      {name:'Midnight', val:'linear-gradient(135deg,#1e293b,#0ea5e9)'},
+      {name:'Tropic', val:'linear-gradient(135deg,#14b8a6,#facc15)'},
+      {name:'Candy', val:'linear-gradient(135deg,#fb7185,#e879f9)'},
+      {name:'Skyblend', val:'linear-gradient(135deg,#38bdf8,#22d3ee)'}
+    ];
+    presets.forEach(c=>{
+      const d=document.createElement('div');
+      d.className='swatch'; d.dataset.val=c.val;
+      d.title = c.name;
+      d.style.cssText='height:36px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:'+(c.val||'linear-gradient(135deg,#39404a,#1b2430)');
+      grid.appendChild(d);
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', rebuildPalette, {once:true});
+  } else {
+    rebuildPalette();
+  }
+})();</script>
+
+<!-- © 2025 Ramifyy — All Rights Reserved. 
+Unauthorized copying, distribution, or modification is strictly prohibited. 
+RIP Jeff Horn 🕊️ -->
